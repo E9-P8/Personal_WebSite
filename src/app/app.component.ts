@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PersonalWebSite';
+
+  isRotated = false;
+  roomIsVisible = false;
+
+  rotateKey(){ 
+    if(this.isRotated) return; 
+    
+    this.isRotated= true;
+    setTimeout(() => {
+      this.roomIsVisible = true
+    }, 350);
+   } 
 }
+
