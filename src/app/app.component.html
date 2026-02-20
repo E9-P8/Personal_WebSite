@@ -19,15 +19,61 @@
   </section>
   <section id="roomScene" *ngIf="roomIsVisible">
     <div class="roomContainer">
-      <img src="assets/Sfondo_mainPage5.png" alt="Stanza" class="roomImage" />
+      <img src="assets/Sfondo_mainPage6.png" alt="Stanza" class="roomImage" />
       <svg
         class="roomOverlay"
         viewBox="0 0 1920 1080"
         preserveAspectRatio="xMidYMid meet"
       >
-        <rect x="1335" y="785" width="66" height="58" class="tv" />
-        <rect x="400" y="480" width="120" height="80" class="tv" />
-        <rect x="760" y="500" width="120" height="80" class="tv" />
+        <image
+          href="assets/tv-noise.jpg"
+          x="1335"
+          y="789"
+          width="62"
+          height="50"
+          preserveAspectRatio="xMidYMid slice"
+          rx="14"
+          ry="14"
+          class="tv-glitch"
+        />
+        <rect
+          x="1335"
+          y="789"
+          width="62"
+          height="50"
+          rx="14"
+          ry="14"
+          class="tv-hitbox"
+        />
+
+        <image
+          href="assets/Cornice.png"
+          x="80"
+          y="200"
+          width="400"
+          height="550"
+          preserveAspectRatio="xMidYMid slice"
+        />
+        <rect x="80" y="200" width="300" height="450" class="button" />
+
+        <image
+          href="assets/MacchinaDaScrivere.png"
+          x="0"
+          y="850"
+          width="400"
+          height="550"
+          preserveAspectRatio="xMidYMid slice"
+        />
+        <rect x="0" y="850" width="200" height="200" class="button" />
+        <image
+          href="assets/Telefono.png"
+          x="200"
+          y="700"
+          width="400"
+          height="550"
+          preserveAspectRatio="xMidYMid slice"
+        />
+        <rect x="200" y="700" width="200" height="200" class="button" />
       </svg>
     </div>
   </section>
