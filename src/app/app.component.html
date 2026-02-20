@@ -28,7 +28,7 @@
         <image
           href="assets/tv-noise.jpg"
           x="1335"
-          y="789"
+          y="696"
           width="62"
           height="50"
           preserveAspectRatio="xMidYMid slice"
@@ -38,42 +38,44 @@
         />
         <rect
           x="1335"
-          y="789"
+          y="696"
           width="62"
           height="50"
           rx="14"
           ry="14"
           class="tv-hitbox"
+          (click)="Project()"
         />
 
         <image
-          href="assets/Cornice.png"
-          x="80"
-          y="200"
+          href="assets/Cornice1.png"
+          x="-100"
+          y="-180"
+          width="700"
+          height="1200"
+          preserveAspectRatio="xMidYMid slice"
+        />
+        <rect x="100" y="70" width="300" height="550" class="button" (click)="AboutMe()"/>
+
+        <image
+          href="assets/Telefono.png"
+          x="180"
+          y="640"
           width="400"
           height="550"
           preserveAspectRatio="xMidYMid slice"
         />
-        <rect x="80" y="200" width="300" height="450" class="button" />
+        <rect x="250" y="700" width="200" height="250" class="button" (click)="Contact()"/>
 
         <image
           href="assets/MacchinaDaScrivere.png"
           x="0"
-          y="850"
+          y="630"
           width="400"
           height="550"
-          preserveAspectRatio="xMidYMid slice"
         />
-        <rect x="0" y="850" width="200" height="200" class="button" />
-        <image
-          href="assets/Telefono.png"
-          x="200"
-          y="700"
-          width="400"
-          height="550"
-          preserveAspectRatio="xMidYMid slice"
-        />
-        <rect x="200" y="700" width="200" height="200" class="button" />
+        <rect x="40" y="800" width="250" height="250" class="button" (click)="Form()"/>
+        
       </svg>
     </div>
   </section>
