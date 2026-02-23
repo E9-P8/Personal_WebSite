@@ -11,6 +11,14 @@ export class AppComponent {
   isRotated = false;
   roomIsVisible = false;
 
+  AboutMe = false;
+  Contact = false;
+  Form = false;
+
+
+  paperVisible = false;
+
+
   rotateKey(){ 
     if(this.isRotated) return; 
     
@@ -19,5 +27,40 @@ export class AppComponent {
       this.roomIsVisible = true
     }, 350);
    } 
-}
 
+   
+  OpenAboutMe(){
+    this.AboutMe = true;
+    this.Form = false;
+    this.Contact = false;
+  } 
+  OpenContact(){
+    this.Contact = true;
+    this.Form = false;
+    this.AboutMe = false;
+  }
+  OpenForm(){
+    this.Form = true;
+    this.AboutMe = false;
+    this.Contact = false;
+  }
+  CloseAboutMe(){
+    this.AboutMe = false;
+    this.Form = false;
+    this.Contact = false;
+  } 
+  CloseContact(){
+    this.Contact = false;
+    this.Form = false;
+    this.AboutMe = false;
+  }
+  CloseForm(){
+    this.Form = false;
+    this.AboutMe = false;
+    this.Contact = false;
+  }
+  Project(){}
+
+//--------------------------------------------------------------
+sendMail(){}
+}

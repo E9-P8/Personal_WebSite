@@ -25,58 +25,197 @@
         viewBox="0 0 1920 1080"
         preserveAspectRatio="xMidYMid meet"
       >
-        <image
-          href="assets/tv-noise.jpg"
-          x="1335"
-          y="696"
-          width="62"
-          height="50"
-          preserveAspectRatio="xMidYMid slice"
-          rx="14"
-          ry="14"
-          class="tv-glitch"
-        />
-        <rect
-          x="1335"
-          y="696"
-          width="62"
-          height="50"
-          rx="14"
-          ry="14"
-          class="tv-hitbox"
-          (click)="Project()"
-        />
+        <!--Project -->
+        <g class="tv-project">
+          <rect
+            x="1335"
+            y="696"
+            width="62"
+            height="50"
+            rx="14"
+            ry="14"
+            class="tv-hitbox"
+            (click)="Project()"
+          />
+          <image
+            href="assets/tv-noise.jpg"
+            x="1335"
+            y="696"
+            width="62"
+            height="50"
+            preserveAspectRatio="xMidYMid slice"
+            rx="14"
+            ry="14"
+            class="tv-glitch"
+          />
+          <text x="1366" y="725" text-anchor="middle" class="tv-icon">
+            &lt;/&gt;
+          </text>
+        </g>
 
+        <!--About me-->
         <image
           href="assets/Cornice1.png"
-          x="-100"
-          y="-180"
-          width="700"
-          height="1200"
+          x="20"
+          y="-140"
+          width="450"
+          height="800"
           preserveAspectRatio="xMidYMid slice"
+          *ngIf="!AboutMe"
         />
-        <rect x="100" y="70" width="300" height="550" class="button" (click)="AboutMe()"/>
-
-        <image
-          href="assets/Telefono.png"
-          x="180"
-          y="640"
-          width="400"
+        <rect
+          x="100"
+          y="70"
+          width="300"
           height="550"
-          preserveAspectRatio="xMidYMid slice"
+          class="button"
+          (click)="OpenAboutMe()"
         />
-        <rect x="250" y="700" width="200" height="250" class="button" (click)="Contact()"/>
+        <g class="frame-me">
+          <image
+            href="assets/Cornice_retro.png"
+            x="50%"
+            y="50%"
+            width="800"
+            height="1200"
+            preserveAspectRatio="xMidYMid slice"
+            transform="translate(-350 -600)"
+            *ngIf="AboutMe"
+          />
+          <text
+            x="50%"
+            y="50%"
+            width="800"
+            height="1200"
+            text-anchor="middle"
+            class="tv-icon"
+            *ngIf="AboutMe"
+          >
+            Lorem ipsum dolor sit amet
+          </text>
+          <rect
+            x="50%"
+            y="50%"
+            width="30"
+            height="50"
+            class="Closebutton"
+            (click)="CloseAboutMe()"
+            *ngIf="AboutMe"
+          />
+        </g>
 
+        <!--Contact -->
+        <g>
+          <image
+            href="assets/Telefono.png"
+            x="180"
+            y="640"
+            width="400"
+            height="550"
+            preserveAspectRatio="xMidYMid slice"
+            *ngIf="!Contact"
+          />
+          <rect
+            x="250"
+            y="700"
+            width="200"
+            height="250"
+            class="button"
+            *ngIf="!Contact"
+            (click)="OpenContact()"
+          />
+          <image
+            href="assets/tv.png"
+            x="50%"
+            y="50%"
+            width="800"
+            height="1200"
+            preserveAspectRatio="xMidYMid slice"
+            *ngIf="Contact"
+          />
+          <rect
+            x="50%"
+            y="50%"
+            width="200"
+            height="250"
+            class="Closebutton"
+            (click)="CloseContact()"
+            *ngIf="Contact"
+          />
+        </g>
+        <!-- Form -->
         <image
           href="assets/MacchinaDaScrivere.png"
           x="0"
           y="630"
           width="400"
           height="550"
+          *ngIf="!Form"
         />
-        <rect x="40" y="800" width="250" height="250" class="button" (click)="Form()"/>
-        
+        <rect
+          x="40"
+          y="800"
+          width="250"
+          height="250"
+          class="button"
+          (click)="OpenForm()"
+        />
+
+        <!---->
+        <!--       <image
+          href="assets/tv.png"
+          x="50%"
+          y="50%"
+          width="800"
+          height="1200"
+          *ngIf="Form"
+        />  
+        <rect
+          x="50%"
+          y="50%"
+          width="250"
+          height="250"
+          class="Closebutton"
+          (click)="CloseForm()"
+          *ngIf="Form"
+        /> -->
       </svg>
+
+      <div class="form-container" *ngIf="Form">
+        <div class="form-paper">
+          <form
+            class="email-form"
+            action="https://formsubmit.com/puorto.elisa@hotmail.com"
+            method="POST"
+          >
+            <div class="form-row">
+              <div class="field">
+                <label>Nome</label>
+                <input type="text" placeholder="Nome" required />
+              </div>
+              <div class="field">
+                <label>Cognome</label>
+                <input type="text" placeholder="Cognome" required />
+              </div>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="text" placeholder="Email" required />
+            </div>
+            <div class="field">
+              <label>Scrivimi qui la richiesta</label>
+              <textarea placeholder="Scrivi qui" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" (click)="CloseForm()">Chiudi</button>
+              <button type="submit" class="form-lever"></button>
+            </div>
+          </form>
+        </div>
+        <div class="form-macchina">
+          <img src="../assets/Macchina-form.png" class="form-image-macchina" />
+        </div>
+      </div>
     </div>
   </section>
 </div>

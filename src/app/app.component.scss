@@ -79,9 +79,10 @@
 .button {
     pointer-events: all;
     cursor: pointer;
-    fill: rgba(200, 255, 0, 0.286);
+    fill: transparent; 
     
 }
+
 .tv-hitbox {
     fill: transparent;
     pointer-events: all;
@@ -166,15 +167,10 @@
     z-index: 1;
 }
 
-;
-
-
 .lockScene {
     height: 100vh;
     overflow: hidden;
 }
-
-;
 
 .roomContainer {
     position: relative;
@@ -195,10 +191,26 @@
     pointer-events: none;
 }
 
-.button {
+
+.Closebutton {
+    fill: rgb(255, 115, 0);
     pointer-events: all;
     cursor: pointer;
+}
 
+
+.tv-project{
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.4s ease;
+}
+.tv-icon {
+    fill: #130f06;
+    font-family: 'Courier New', monospace;
+    font-size: 25px;
+    font-weight: bold;
+    pointer-events: none;
+    text-shadow: 0 0 5px black;
 }
 
 .tv-hitbox {
@@ -214,13 +226,16 @@
     transform-origin: center;
 
     animation: tvGlitch 0.15s infinite;
+    transition: transform 0.4s ease-in-out;
     mix-blend-mode: normal;
 }
 
-.tv-hitbox:hover+.tv-glitch,
-.tv-hitbox:hover~.tv-glitch {
-    animation: none;
-}
+
+.tv-project:hover{
+        transform: scale(1.4); }
+        
+.tv-project:hover .tv-glitch {
+        animation-play-state: paused;         }
 
 @keyframes tvGlitch {
     0% {
@@ -243,31 +258,64 @@
         transform: translate(0, 0);
     }
 }
+//{}
 
-/* debug */
-.tv:hover {
-    animation: none; }
-@keyframes tvGlitch {
-    0% {
-        transform: translate(0, 0);
+
+.form-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+    
+.form-image-macchina {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+}
+.form-paper {
+    position: absolute;
+
+    height:70%;
+    left: 50%;
+    max-width: 43%;
+    bottom: 0;
+    z-index: 1;
+    background: #d2c19e;
+    
+    transform: translateX(-50%) translateY(100%);
+    
+    animation: slideUp 1s ease-out forwards;
+
+    font-size: 1.1vw;
+}
+
+
+@keyframes slideUp {
+    from {
+        transform: translateX(-50%) translateY(100%);
     }
 
-    25% {
-        transform: translate(-1px, 0);
-    }
-
-    50% {
-        transform: translate(1px, 0);
-    }
-
-    75% {
-        transform: translate(0, -1px);
-    }
-
-    100% {
-        transform: translate(0, 0);
+    to {
+        transform: translateX(-50%) translateY(-30%);
     } }
 
-/* debug */
-.tv:hover {
-    animation: none; }
+.email-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+        /* LEVA 
+        .lever {
+            position: absolute;
+            right: -40px;
+            top: 220px;
+            width: 40px;
+            height: 120px;
+            cursor: pointer;     } */
