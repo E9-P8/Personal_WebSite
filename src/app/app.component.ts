@@ -1,22 +1,25 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  
 })
 export class AppComponent {
+
+  
   title = 'PersonalWebSite';
 
   isRotated = false;
   roomIsVisible = false;
+  showProject = false; 
+  LockScene = true;
 
-  AboutMe = false;
-  Contact = false;
-  Form = false;
-
-
-  paperVisible = false;
 
 
   rotateKey(){ 
@@ -24,43 +27,13 @@ export class AppComponent {
     
     this.isRotated= true;
     setTimeout(() => {
-      this.roomIsVisible = true
+      this.roomIsVisible = true;
+      this.LockScene= false;
     }, 350);
    } 
+   OpenProject() { 
+    this.showProject = true; 
+    this.roomIsVisible = false; 
 
-   
-  OpenAboutMe(){
-    this.AboutMe = true;
-    this.Form = false;
-    this.Contact = false;
-  } 
-  OpenContact(){
-    this.Contact = true;
-    this.Form = false;
-    this.AboutMe = false;
-  }
-  OpenForm(){
-    this.Form = true;
-    this.AboutMe = false;
-    this.Contact = false;
-  }
-  CloseAboutMe(){
-    this.AboutMe = false;
-    this.Form = false;
-    this.Contact = false;
-  } 
-  CloseContact(){
-    this.Contact = false;
-    this.Form = false;
-    this.AboutMe = false;
-  }
-  CloseForm(){
-    this.Form = false;
-    this.AboutMe = false;
-    this.Contact = false;
-  }
-  Project(){}
-
-//--------------------------------------------------------------
-sendMail(){}
+}
 }

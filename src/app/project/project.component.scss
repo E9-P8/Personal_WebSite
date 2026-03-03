@@ -1,0 +1,58 @@
+:root {
+    --xOrigin: 50;
+    --yOrigin: 50;
+}
+
+$rings: 20;
+
+.project {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tunnel {
+    position: fixed; // copre tutto lo schermo
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 999; // sopra al resto
+
+    &__rings {
+        position: relative;
+        transform-style: preserve-3d;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transform: scale(1.25); // parte grande
+        transform-origin: calc(var(--xOrigin) * 1%) calc(var(--yOrigin) * 1%);
+        animation: scaleIn 2s linear forwards; // nuova animazione
+
+        @for $i from 1 through $rings {
+            &:nth-of-type(#{$i}) {
+                animation-delay: ($i - 1) * 0.15s;
+                background: darken(#ffffff, $i * 5%); // blu invece del rosso (puoi cambiare)
+            }
+        }
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(1.25) translate3d(0, 0, -100px); // grande e indietro
+    }
+
+    to {
+        transform: scale(0) translate3d(0, 0, 0); // si restringe e “entra”
+    }
+}

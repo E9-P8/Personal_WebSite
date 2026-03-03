@@ -1,0 +1,101 @@
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-room-scene',
+  templateUrl: './room-scene.component.html',
+  styleUrls: ['./room-scene.component.scss'],
+ 
+})
+
+
+
+export class RoomSceneComponent implements OnInit {
+
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  roomIsVisible = true;
+  showProject = false; 
+
+  AboutMe = false;
+  Contact = false;
+  Form = false;
+
+  paperVisible = true;
+  isSended= false;
+
+    
+  OpenAboutMe(){
+    this.AboutMe = true;
+    this.Form = false;
+    this.Contact = false;
+  } 
+  OpenContact(){
+    this.Contact = true;
+    this.Form = false;
+    this.AboutMe = false;
+  }
+  OpenForm(){
+    this.Form = true;
+    this.AboutMe = false;
+    this.Contact = false;
+  }
+  CloseAboutMe(){
+    this.AboutMe = false;
+    this.Form = false;
+    this.Contact = false;
+  } 
+  CloseContact(){
+    this.Contact = false;
+    this.Form = false;
+    this.AboutMe = false;
+  }
+  CloseForm(){
+    this.Form = false;
+    this.AboutMe = false;
+    this.Contact = false;
+  }
+
+form = {
+  name: '',
+  surname: '',
+  email: '',
+  message: ''
+};
+
+sendEmail() {
+  if (
+    !this.form.name ||
+    !this.form.surname ||
+    !this.form.email ||
+    !this.form.message
+  ) {
+    alert('è necessario che tutti i campi siano compilati per procedere');
+    return;
+  }
+
+  this.isSended = true;
+
+  setTimeout(() => {
+    this.isSended = false;
+
+    this.form = {
+      name: '',
+      surname: '',
+      email: '',
+      message: ''
+    };
+  }, 700);
+}
+
+@Output() projectOpened = new EventEmitter<void>(); 
+@Output() tvClicked = new EventEmitter<void>(); 
+
+OpenProject() { 
+  this.projectOpened.emit(); 
+  this.tvClicked.emit();
+ }
+
+}

@@ -1,0 +1,14 @@
+<div class="project">
+  <div class="tunnel">
+    <div class="tunnel__rings">
+      <div
+        class="tunnel__ring"
+        *ngFor="let ring of rings"
+        (animationend)="onAnimationEnd($event)"
+      ></div>
+    </div>
+  </div>
+  <div class="project-content" *ngIf="showContent">
+    <h2>Project aperto!</h2>
+  </div>
+</div>
