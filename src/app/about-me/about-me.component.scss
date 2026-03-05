@@ -1,0 +1,54 @@
+.aboutmeFrame {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px; 
+    overflow: hidden;
+}
+
+.frame-flip {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+}
+
+.frame-flip.flipped {
+    transform: rotateY(180deg);
+}
+
+.frame-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    object-fit: cover;
+
+    img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // riempie tutto lo schermo 
+    }
+}
+
+.front {
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.retro-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    z-index: 2; // sopra l’immagine retro 
+    }

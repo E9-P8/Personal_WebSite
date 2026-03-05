@@ -26,11 +26,19 @@ export class RoomSceneComponent implements OnInit {
   paperVisible = true;
   isSended= false;
 
+  @Output() projectOpened = new EventEmitter<void>(); 
+  @Output() tvClicked = new EventEmitter<void>(); 
+
+  @Output() AboutMeOpened = new EventEmitter<void>(); 
+  @Output() frameClicked = new EventEmitter<void>(); 
+
     
   OpenAboutMe(){
-    this.AboutMe = true;
+   /* this.AboutMe = true;
     this.Form = false;
-    this.Contact = false;
+    this.Contact = false;*/
+    this.AboutMeOpened.emit(); 
+    this.frameClicked.emit();
   } 
   OpenContact(){
     this.Contact = true;
@@ -58,14 +66,14 @@ export class RoomSceneComponent implements OnInit {
     this.Contact = false;
   }
 
-form = {
-  name: '',
-  surname: '',
-  email: '',
-  message: ''
-};
+  form = {
+    name: '',
+    surname: '',
+    email: '',
+    message: ''
+  };
 
-sendEmail() {
+  sendEmail() {
   if (
     !this.form.name ||
     !this.form.surname ||
@@ -88,14 +96,12 @@ sendEmail() {
       message: ''
     };
   }, 700);
-}
+  }
 
-@Output() projectOpened = new EventEmitter<void>(); 
-@Output() tvClicked = new EventEmitter<void>(); 
 
-OpenProject() { 
-  this.projectOpened.emit(); 
-  this.tvClicked.emit();
- }
+  OpenProject() { 
+    this.projectOpened.emit(); 
+    this.tvClicked.emit();
+  }
 
 }

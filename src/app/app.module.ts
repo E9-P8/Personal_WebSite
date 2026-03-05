@@ -11,12 +11,14 @@ import { RouterModule } from '@angular/router';
 import { RoomSceneComponent } from './room-scene/room-scene.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutMeComponent } from './about-me/about-me.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectComponent,
-    RoomSceneComponent
+    RoomSceneComponent,
+    AboutMeComponent
   ],
   imports: [
     BrowserModule,

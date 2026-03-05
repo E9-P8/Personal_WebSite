@@ -17,8 +17,13 @@
       <p>Gira la chiave per entrare</p>
     </div>
   </section>
-  <app-room-scene *ngIf="roomIsVisible" (tvClicked)="OpenProject()">
+  <app-room-scene
+    *ngIf="roomIsVisible"
+    (tvClicked)="OpenProject()"
+    (frameClicked)="OpenAboutMe()"
+  >
     ></app-room-scene
   >
   <app-project *ngIf="showProject"></app-project>
+  <app-about-me *ngIf="showAboutMe"></app-about-me>
 </div>
