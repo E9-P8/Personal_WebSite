@@ -44,4 +44,9 @@ OpenAboutMe(){
   this.roomIsVisible = false; 
   this.showProject = false;
 } 
+CloseAboutMe(){
+  this.showAboutMe= false;
+  this.roomIsVisible = true; 
+  this.showProject = false;
+} 
 }

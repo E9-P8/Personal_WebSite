@@ -34,12 +34,10 @@ export class RoomSceneComponent implements OnInit {
 
     
   OpenAboutMe(){
-   /* this.AboutMe = true;
-    this.Form = false;
-    this.Contact = false;*/
     this.AboutMeOpened.emit(); 
     this.frameClicked.emit();
   } 
+
   OpenContact(){
     this.Contact = true;
     this.Form = false;
@@ -50,11 +48,7 @@ export class RoomSceneComponent implements OnInit {
     this.AboutMe = false;
     this.Contact = false;
   }
-  CloseAboutMe(){
-    this.AboutMe = false;
-    this.Form = false;
-    this.Contact = false;
-  } 
+ 
   CloseContact(){
     this.Contact = false;
     this.Form = false;

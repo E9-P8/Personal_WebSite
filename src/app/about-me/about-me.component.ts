@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-me.component.scss']
 })
 export class AboutMeComponent implements OnInit {
+  @Output() AboutMeClosed = new EventEmitter<void>(); 
+  @Output() frameClicked = new EventEmitter<void>();
 
   flipped = false;
 
@@ -18,6 +20,13 @@ export class AboutMeComponent implements OnInit {
       this.flipped= true;
     }, 100);
   }
+  CloseAboutMe(){
+    this.flipped= false;
 
-
+    setTimeout(()=> {
+      this.AboutMeClosed.emit(); 
+      this.frameClicked.emit();
+    }, 1000);
+    
+  }
 }

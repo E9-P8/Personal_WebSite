@@ -51,38 +51,6 @@
         class="button"
         (click)="OpenAboutMe()"
       />
-      <g class="frame-me">
-        <image
-          href="assets/Cornice_retro.png"
-          x="50%"
-          y="50%"
-          width="800"
-          height="1200"
-          preserveAspectRatio="xMidYMid slice"
-          transform="translate(-350 -600)"
-          *ngIf="AboutMe"
-        />
-        <text
-          x="50%"
-          y="50%"
-          width="800"
-          height="1200"
-          text-anchor="middle"
-          class="tv-icon"
-          *ngIf="AboutMe"
-        >
-          Lorem ipsum dolor sit amet
-        </text>
-        <rect
-          x="50%"
-          y="50%"
-          width="30"
-          height="50"
-          class="Closebutton"
-          (click)="CloseAboutMe()"
-          *ngIf="AboutMe"
-        />
-      </g>
 
       <!--Contact -->
       <g>

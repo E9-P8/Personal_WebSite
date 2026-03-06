@@ -25,5 +25,8 @@
     ></app-room-scene
   >
   <app-project *ngIf="showProject"></app-project>
-  <app-about-me *ngIf="showAboutMe"></app-about-me>
+  <app-about-me
+    *ngIf="showAboutMe"
+    (AboutMeClosed)="CloseAboutMe()"
+  ></app-about-me>
 </div>

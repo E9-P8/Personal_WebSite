@@ -1,15 +1,17 @@
+
 .aboutmeFrame {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 1200px; 
-    overflow: hidden;
+    perspective: 1200px;
+    overflow-y: auto;
+    background-color: #cdcbc1;
 }
 
 .frame-flip {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
@@ -28,9 +30,9 @@
     object-fit: cover;
 
     img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; // riempie tutto lo schermo 
+        width: 100vw;
+        height: auto;
+        object-fit: cover; // riempie tutto lo schermo 
     }
 }
 
@@ -51,4 +53,4 @@
     font-size: 2rem;
     text-align: center;
     z-index: 2; // sopra l’immagine retro 
-    }
+}
