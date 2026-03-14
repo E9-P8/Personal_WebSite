@@ -39,6 +39,12 @@ OpenProject() {
   this.roomIsVisible = false; 
 
 }
+CloseProject() { 
+  this.showProject = false; 
+  this.showProjectContent = false;
+  this.roomIsVisible = true; 
+
+}
 OpenAboutMe(){
   this.showAboutMe= true;
   this.roomIsVisible = false; 

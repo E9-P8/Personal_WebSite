@@ -4,6 +4,7 @@
     <div class="tunnelRings">
       <div
         class="tunnelRing"
+        [ngClass]="isEntering ? 'enter' : 'exit'"
         *ngFor="let ring of rings"
         (animationend)="onAnimationEnd($event)"
       ></div>
@@ -12,7 +13,235 @@
 
   <!-- Contenuto vero del Project -->
   <div class="project-content" *ngIf="showContent">
-    <h2>Project aperto!</h2>
-    <!-- qui metti il contenuto reale del project -->
+    <main>
+      <section class="projects">
+        <h2>Projects</h2>
+        <article class="project project-selected">
+          <a class="project-summary" href="/" target="_blank" rel="noreferrer">
+            <div class="project-summary-title">
+              <div class="project-spacer"><p>[/&gt;</p></div>
+              <div class="title">
+                <p>Pr. name</p>
+                <h3>Harry Potter Escape</h3>
+                <p class="read-more">
+                  <span class="text">2025</span>
+                  <span class="bleep"></span>
+                  <span class="arrow">⮐</span>
+                </p>
+              </div>
+            </div>
+            <div class="project-summary-description">
+              <div class="project-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="text">
+                <p class="title">[/&gt; info</p>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat<br /><br />Design:
+                  Elisa Puorto
+                </p>
+                <p class="tech">Tech: frontend, nodejs</p>
+                <p class="url">/</p>
+              </div>
+            </div>
+            <div class="project-summary-link">
+              <span>Visit site <span class="arrow">→</span></span>
+            </div></a
+          >
+        </article>
+        <article class="project">
+          <a class="project-summary" href="/" target="_blank" rel="noreferrer"
+            ><div class="project-summary-title">
+              <div class="project-spacer"><p>[/&gt;</p></div>
+              <div class="title">
+                <p>Pr. name</p>
+                <h3>Expedition Trailblazer</h3>
+                <p class="read-more">
+                  <span class="text">2025</span> <span class="bleep"></span>
+                  <span class="arrow">⮐</span>
+                </p>
+              </div>
+            </div>
+            <div class="project-summary-description">
+              <div class="project-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="text">
+                <p class="title">[/&gt; info</p>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat<br /><br />
+                </p>
+                <p class="tech">Tech: noTech</p>
+                <p class="url">/</p>
+              </div>
+            </div>
+            <div class="project-summary-link">
+              <span>Visit site <span class="arrow">→</span></span>
+            </div></a
+          >
+
+          <a
+            class="project-summary"
+            href="https://brandingthatslaps.com/"
+            target="_blank"
+            rel="noreferrer"
+            ><div class="project-summary-title">
+              <div class="project-spacer"><p>[/&gt;</p></div>
+              <div class="title">
+                <p>Pr. name</p>
+                <h3>Coming Soon</h3>
+                <p class="read-more">
+                  <span class="text">202-</span> <span class="bleep"></span>
+                  <span class="arrow">⮐</span>
+                </p>
+              </div>
+            </div>
+            <div class="project-summary-description">
+              <div class="project-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="text">
+                <p class="title">[/&gt; info</p>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat<br /><br />Design:
+                  Slaps
+                </p>
+                <p class="tech">Tech: -</p>
+                <p class="url">/</p>
+              </div>
+            </div>
+            <div class="project-summary-link">
+              <span>Visit site <span class="arrow">→</span></span>
+            </div></a
+          >
+        </article>
+        <article class="project">
+          ><a
+            class="project-summary"
+            href="https://bvds.nl/"
+            target="_blank"
+            rel="noreferrer"
+            ><div class="project-summary-title">
+              <div class="project-spacer"><p>[/&gt;</p></div>
+              <div class="title">
+                <p>Pr. name</p>
+                <h3>Coming Soon</h3>
+                <p class="read-more">
+                  <span class="text">202-</span> <span class="bleep"></span>
+                  <span class="arrow">⮐</span>
+                </p>
+              </div>
+            </div>
+            <div class="project-summary-description">
+              <div class="project-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="text">
+                <p class="title">[/&gt; info</p>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat
+                </p>
+                <p class="tech">Tech: -</p>
+                <p class="url">/</p>
+              </div>
+            </div>
+            <div class="project-summary-link">
+              <span>Visit site <span class="arrow">→</span></span>
+            </div></a
+          >
+        </article>
+      </section>
+      <!-- 
+      <section class="services">
+        <h2>Services</h2>
+        <h3>[/&gt;:]</h3>
+        <article class="service">
+          <button>
+            <h3>_ Frontend development <span class="arrow">⮐</span></h3>
+          </button>
+          <div class="service-description">
+            <div class="service-spacer"></div>
+            <p>
+              As a creative thinker, the products I deliver are always custom. I
+              leverage custom development to make sure your website is supported
+              on all major browsers and devices, with engaging interactions. I
+              translate your design to a maintainable, fast and accessible
+              website using pure html, javascript and css, or any industry
+              standard framework.
+            </p>
+          </div>
+        </article>
+        <article class="service">
+          <button>
+            <h3>_ API integration <span class="arrow">⮐</span></h3>
+          </button>
+          <div class="service-description">
+            <div class="service-spacer"></div>
+            <p>
+              I provide seamless integrations and automations to meet your
+              client’s marketing goals. I use established platforms and
+              (headless) content management systems, supporting their business’
+              growth and SEO optimisation,.
+            </p>
+          </div>
+        </article>
+        <article class="service">
+          <button>
+            <h3>_ Interactive motion design <span class="arrow">⮐</span></h3>
+          </button>
+          <div class="service-description">
+            <div class="service-spacer"></div>
+            <p>
+              With a background in media design and animation I can enhance the
+              user experience of a website with meaningful animations.
+            </p>
+          </div>
+        </article>
+        <article class="service">
+          <button>
+            <h3>_ Product consulting <span class="arrow">⮐</span></h3>
+          </button>
+          <div class="service-description">
+            <div class="service-spacer"></div>
+            <p>
+              With over a decade of experience, working for diverse clients
+              holding high standards, I can help your studio make the best
+              design decisions from a technical point of view, in an early stage
+              of the process. This will boost your studio’s productivity and
+              client satisfaction.
+            </p>
+          </div>
+        </article>
+      </section>
+      <section class="contact">
+        <h2>Contact</h2>
+        <div class="details">
+          <p>Yannick Gregoire<br />© 2026</p>
+          <p>
+            <a href="mailto:hi@yannickgregoire.nl">hi@yannickgregoire.nl</a>
+          </p>
+          <p>
+            <a
+              href="https://instagram.com/yannickgregoire/"
+              rel="noopener noreferrer nofollow"
+              target="_blank"
+              >@yannickgregoire</a
+            >
+          </p>
+          <p>
+            <a href="https://loonatiks.gr/" rel="noopener noreferrer nofollow"
+              >Loonatiks Design Crew</a
+            >
+            <span class="heart"> </span>
+          </p>
+        </div>
+      </section> -->
+    </main>
+    <button (click)="closeProject()">Esci dai progetti</button>
   </div>
+  <span class="bleep"></span>
 </div>

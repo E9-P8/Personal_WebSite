@@ -1,26 +1,13 @@
-:root {
-    --xOrigin: 50;
-    --yOrigin: 50;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 $rings: 20;
-
-.project {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
 .tunnel {
-    position: fixed; // copre tutto lo schermo
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    z-index: 999; // sopra al resto
+    z-index: 999;
 
     &Rings {
         position: relative;
@@ -28,37 +15,302 @@ $rings: 20;
         height: 100%;
         width: 100%;
     }
+}
+.tunnelRing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: scale(1.25);
+    transform-origin: calc(var(--xOrigin) * 1%) calc(var(--yOrigin) * 1%);
+    border-radius: 50%;
+}
+// animazioni
+.tunnelRing.enter {
+    animation: scaleIn 2s linear forwards;
+}
+.tunnelRing.exit {
+    animation: scaleOut 2s linear forwards;
+}
+// ciclo per colore + delay
+@for $i from 1 through $rings {
+    .tunnelRing:nth-of-type(#{$i}).enter {
+        background: darken(#4b4c4d, $i * 5%);
+        animation-delay: -($i - 1) * 0.20s;
+    }
 
-    &Ring {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        transform: scale(1.25); // parte grande
-        transform-origin: calc(var(--xOrigin) * 1%) calc(var(--yOrigin) * 1%);
-        animation: scaleIn 2s linear forwards;
-        border-radius: 50%;
-
-        @for $i from 1 through $rings {
-                &:nth-of-type(#{$i}) {
-                    background: darken(#4b4c4d, $i * 5%);
-                    animation-delay: -($i - 1) * 0.20s; // negativo! 
-                    } }
+    .tunnelRing:nth-of-type(#{$i}).exit {
+        background: darken(#4b4c4d, $i * 5%);
+        animation-delay: -($i - 1) * 0.20s;
     }
 }
-
 @keyframes scaleIn {
     from {
-        transform: scale(1.55) translate3d(0, 0, -100px); // grande e indietro
+        transform: scale(1.55) translate3d(0, 0, -100px);
     }
 
     to {
-        transform: scale(0) translate3d(0, 0, 0); // si restringe e “entra”
+        transform: scale(0) translate3d(0, 0, 0);
+    }
+}
+@keyframes scaleOut {
+    from {
+        transform: scale(0) translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: scale(1.55) translate3d(0, 0, -100px);
+    }
+}
+/*
+body {
+    --letter-ratio: 1.666;
+    --letter-size-base: 16;
+    --letter-count-h1: 16;
+    --letter-count-h2: calc(var(--letter-size-base) * 2);
+    --letter-count-h3: calc(var(--letter-size-base) * 4);
+    --letter-count-p: calc(var(--letter-size-base) * 6);
+    --letter-count-small: calc(var(--letter-size-base) * 8);
+    --letter-count-xsmall: calc(var(--letter-size-base) * 10);
+    --color-foreground: #000;
+    --color-background: #fff;
+    --color-highlight: #00ffa8;
+    --color-highlight-inverted: #ff00a8;
+    -webkit-font-smoothing: antialiased
+}*/
+:root {
+    --letter-ratio: 1.666;
+    --letter-size-base: 16;
+    --letter-count-h1: 16;
+    --letter-count-h2: calc(var(--letter-size-base) * 2);
+    --letter-count-h3: calc(var(--letter-size-base) * 4);
+    --letter-count-p: calc(var(--letter-size-base) * 6);
+    --letter-count-small: calc(var(--letter-size-base) * 8);
+    --letter-count-xsmall: calc(var(--letter-size-base) * 10);
+
+    --color-foreground: #fff;
+    --color-background: #000;
+    --color-highlight: #00ffa8;
+    --color-highlight-inverted: #ff00a8;
+}
+body {
+    color: var(--color-foreground);
+    background: var(--color-background);
+    font-size: calc(99vw / var(--letter-count-p) * var(--letter-ratio));
+}
+
+h2 {
+    font-size: calc(99vw / var(--letter-count-h2) * var(--letter-ratio));
+}
+
+a,
+body,
+h2,
+h3,
+p {
+    color: #fff;
+    font-family: 'VT323',monospace;
+    text-transform: uppercase;
+    text-decoration: none;
+    -webkit-font-smoothing: none;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    line-height: 1.2em;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1
+    }
+    50% {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+//manca project selected 
+
+.project {
+    position: relative;
+    width: 100%;
+    padding-bottom: 2em
+}
+
+.project .project-summary {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    white-space: pre-wrap;
+}
+
+.project .project-summary .project-summary-title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex: 2 1;
+    padding-right: 2vw;
+    gap:1em;
+}
+
+.project .project-spacer {
+    white-space: pre-wrap;
+}
+
+
+.project .project-summary .project-summary-title .title {
+    flex: 1 1;
+    line-height: 1em;
+    padding-bottom: .1em;
+}
+
+.project .project-summary .project-summary-title h3 {
+    display: inline-block
+}
+.project .project-summary .project-summary-description {
+    display: flex;
+    flex: 4 1;
+}
+
+.project .project-summary .project-summary-title .read-more {
+    mix-blend-mode: normal
+}
+
+.project .project-summary .project-summary-description .project-spacer {
+    display: none;
+}
+.project .project-summary .project-summary-description .awards,
+.project .project-summary .project-summary-description .description,
+.project .project-summary .project-summary-description .tech,
+.project .project-summary .project-summary-description .url {
+    font-size: calc(99vw / var(--letter-count-xsmall) * var(--letter-ratio));
+}
+
+.project .project-summary .project-summary-link {
+    display: flex;
+    justify-content: flex-end;
+    flex: 3 1;
+    color: #fff;
+    mix-blend-mode: exclusion;
+}
+
+
+.project .project-summary .project-summary-title .read-more .arrow,
+.project .project-summary .project-summary-title .read-more .text {
+    color: #fff;
+    mix-blend-mode: exclusion
+}
+
+.project .project-summary .project-summary-title .read-more .bleep {
+    background: var(--color-highlight);
+    width: 1vw;
+    height: 1vw;
+    margin-bottom: .3vw;
+    display: inline-block;
+    vertical-align: text-bottom;
+    transition: background .5s cubic-bezier(.19, 1, .22, 1);
+}
+/*
+.project .project-summary .project-summary-year {
+    flex: 1 1;
+    padding-right: 2vw;
+}
+
+
+
+@media(max-width: 480px) {
+    .project .project-summary .project-summary-description .title {
+        display: none;
+    }
+
+    .project .project-summary .project-summary-description .text {
+        margin: 1em 0;
     }
 }
 
 
-h2 {
-    color: white;
+.project .project-summary .project-summary-description span span {
+    display: inline-block;
+    background: #fff;
+    color: #000;
 }
+
+
+
+@media(max-width: 480px) {
+    .project .project-summary .project-summary-description .project-spacer {
+        display: block;
+    }
+}
+
+
+
+.project .project-summary:hover .arrow {
+    animation: blink .1s step-start infinite;
+}
+
+.project .project-details {
+    position: relative;
+    display: none;
+    flex-direction: row;
+}
+
+.project .project-details .project-description {
+    position: relative;
+    width: 50vw;
+    margin-top: 4em;
+}
+
+.project .project-details .project-description a {
+    font-size: calc(99vw/var(--letter-count-p)*var(--letter-ratio));
+}
+
+.project .project-details .project-description h3,
+.project .project-details .project-description p {
+    margin-bottom: 1em;
+    text-align: justify;
+    text-align-last: justify;
+    overflow-wrap: break-word;
+}
+
+
+
+
+.project.project-selected .project-summary .project-summary-title h3 {
+    color: var(--color-background);
+    background: var(--color-highlight);
+    mix-blend-mode: normal;
+}
+
+.project.project-selected .project-summary .read-more .bleep {
+    background: var(--color-foreground);
+}
+
+
+@media(max-width: 480px) {
+    .project .project-summary {
+        flex-direction: column
+    }
+
+    .project .project-summary .project-summary-link {
+        align-self: flex-end
+    }
+
+    .project .project-summary .bleep {
+        width: 2vw;
+        height: 2vw;
+        margin-bottom: .6vw
+    }
+
+    .project .project-details .project-description {
+        width: 70vw
+    }
+}
+
+.projects h3 {
+    white-space: pre-wrap
+}*/
