@@ -2,11 +2,36 @@
 body{
     background-color: black; 
     height: 100%;
-margin: 0px}
+    margin: 0;
+}
 
 app-room-scene,
 app-project {
     display: block;
     width: 100%;
-    height: 100%; }
+    height: 100%; 
+}
 
+
+:root {
+    --letter-ratio: 2.2;
+    --letter-size-base: 16;
+    --letter-count-h1: 16;
+    --letter-count-h2: calc(var(--letter-size-base) * 2);
+    --letter-count-h3: calc(var(--letter-size-base) * 4);
+    --letter-count-p: calc(var(--letter-size-base) * 7);
+    --letter-count-small: calc(var(--letter-size-base) * 8);
+    --letter-count-xsmall: calc(var(--letter-size-base) * 10);
+
+    --color-foreground: #fff;
+    --color-background: #000;
+    --color-highlight: #89ff7b;
+    --color-highlight-inverted: #e86ae0; 
+    }
+
+    
+@media (max-width: 1024px) {
+    body {
+        --letter-size-base: 14;
+    }           
+}

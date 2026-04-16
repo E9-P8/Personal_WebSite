@@ -1,5 +1,5 @@
 <div class="project">
-  <!-- Tunnel -->
+  <!-- Tunnel-->
   <div class="tunnel" *ngIf="!showContent">
     <div class="tunnelRings">
       <div
@@ -12,14 +12,14 @@
   </div>
 
   <!-- Contenuto vero del Project -->
-  <div class="project-content" *ngIf="showContent">
+  <div class="tv-screen" *ngIf="showContent">
     <main>
-      <section class="projects">
+      <section class="tv-interface" #tvInterface>
         <h2>Projects</h2>
-        <article class="project project-selected">
+        <article class="tv-item project-selected">
           <a class="project-summary" href="/" target="_blank" rel="noreferrer">
             <div class="project-summary-title">
-              <div class="project-spacer"><p>[/&gt;</p></div>
+              <div class="tv-indent"><p>[/&gt;</p></div>
               <div class="title">
                 <p>Pr. name</p>
                 <h3>Harry Potter Escape</h3>
@@ -31,7 +31,7 @@
               </div>
             </div>
             <div class="project-summary-description">
-              <div class="project-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="tv-indent">&nbsp;&nbsp;&nbsp;&nbsp;</div>
               <div class="text">
                 <p class="title">[/&gt; info</p>
                 <p class="description">
@@ -50,10 +50,10 @@
             </div></a
           >
         </article>
-        <article class="project">
+        <article class="tv-item">
           <a class="project-summary" href="/" target="_blank" rel="noreferrer"
             ><div class="project-summary-title">
-              <div class="project-spacer"><p>[/&gt;</p></div>
+              <div class="tv-indent"><p>[/&gt;</p></div>
               <div class="title">
                 <p>Pr. name</p>
                 <h3>Expedition Trailblazer</h3>
@@ -64,7 +64,7 @@
               </div>
             </div>
             <div class="project-summary-description">
-              <div class="project-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="tv-indent">&nbsp;&nbsp;&nbsp;&nbsp;</div>
               <div class="text">
                 <p class="title">[/&gt; info</p>
                 <p class="description">
@@ -81,14 +81,15 @@
               <span>Visit site <span class="arrow">→</span></span>
             </div></a
           >
-
+        </article>
+        <article class="tv-item">
           <a
             class="project-summary"
             href="https://brandingthatslaps.com/"
             target="_blank"
             rel="noreferrer"
             ><div class="project-summary-title">
-              <div class="project-spacer"><p>[/&gt;</p></div>
+              <div class="tv-indent"><p>[/&gt;</p></div>
               <div class="title">
                 <p>Pr. name</p>
                 <h3>Coming Soon</h3>
@@ -99,7 +100,7 @@
               </div>
             </div>
             <div class="project-summary-description">
-              <div class="project-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="tv-indent">&nbsp;&nbsp;&nbsp;&nbsp;</div>
               <div class="text">
                 <p class="title">[/&gt; info</p>
                 <p class="description">
@@ -118,14 +119,14 @@
             </div></a
           >
         </article>
-        <article class="project">
-          ><a
+        <article class="tv-item">
+          <a
             class="project-summary"
             href="https://bvds.nl/"
             target="_blank"
             rel="noreferrer"
             ><div class="project-summary-title">
-              <div class="project-spacer"><p>[/&gt;</p></div>
+              <div class="tv-indent"><p>[/&gt;</p></div>
               <div class="title">
                 <p>Pr. name</p>
                 <h3>Coming Soon</h3>
@@ -136,7 +137,7 @@
               </div>
             </div>
             <div class="project-summary-description">
-              <div class="project-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="tv-indent">&nbsp;&nbsp;&nbsp;&nbsp;</div>
               <div class="text">
                 <p class="title">[/&gt; info</p>
                 <p class="description">
@@ -155,93 +156,9 @@
           >
         </article>
       </section>
-      <!-- 
-      <section class="services">
-        <h2>Services</h2>
-        <h3>[/&gt;:]</h3>
-        <article class="service">
-          <button>
-            <h3>_ Frontend development <span class="arrow">⮐</span></h3>
-          </button>
-          <div class="service-description">
-            <div class="service-spacer"></div>
-            <p>
-              As a creative thinker, the products I deliver are always custom. I
-              leverage custom development to make sure your website is supported
-              on all major browsers and devices, with engaging interactions. I
-              translate your design to a maintainable, fast and accessible
-              website using pure html, javascript and css, or any industry
-              standard framework.
-            </p>
-          </div>
-        </article>
-        <article class="service">
-          <button>
-            <h3>_ API integration <span class="arrow">⮐</span></h3>
-          </button>
-          <div class="service-description">
-            <div class="service-spacer"></div>
-            <p>
-              I provide seamless integrations and automations to meet your
-              client’s marketing goals. I use established platforms and
-              (headless) content management systems, supporting their business’
-              growth and SEO optimisation,.
-            </p>
-          </div>
-        </article>
-        <article class="service">
-          <button>
-            <h3>_ Interactive motion design <span class="arrow">⮐</span></h3>
-          </button>
-          <div class="service-description">
-            <div class="service-spacer"></div>
-            <p>
-              With a background in media design and animation I can enhance the
-              user experience of a website with meaningful animations.
-            </p>
-          </div>
-        </article>
-        <article class="service">
-          <button>
-            <h3>_ Product consulting <span class="arrow">⮐</span></h3>
-          </button>
-          <div class="service-description">
-            <div class="service-spacer"></div>
-            <p>
-              With over a decade of experience, working for diverse clients
-              holding high standards, I can help your studio make the best
-              design decisions from a technical point of view, in an early stage
-              of the process. This will boost your studio’s productivity and
-              client satisfaction.
-            </p>
-          </div>
-        </article>
-      </section>
-      <section class="contact">
-        <h2>Contact</h2>
-        <div class="details">
-          <p>Yannick Gregoire<br />© 2026</p>
-          <p>
-            <a href="mailto:hi@yannickgregoire.nl">hi@yannickgregoire.nl</a>
-          </p>
-          <p>
-            <a
-              href="https://instagram.com/yannickgregoire/"
-              rel="noopener noreferrer nofollow"
-              target="_blank"
-              >@yannickgregoire</a
-            >
-          </p>
-          <p>
-            <a href="https://loonatiks.gr/" rel="noopener noreferrer nofollow"
-              >Loonatiks Design Crew</a
-            >
-            <span class="heart"> </span>
-          </p>
-        </div>
-      </section> -->
     </main>
-    <button (click)="closeProject()">Esci dai progetti</button>
+    <button class="exit-button" (click)="closeProject()">
+      Esci dai progetti
+    </button>
   </div>
-  <span class="bleep"></span>
 </div>
