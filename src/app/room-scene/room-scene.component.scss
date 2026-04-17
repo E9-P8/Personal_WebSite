@@ -1,3 +1,8 @@
+.overlay-container {
+  position: relative;  
+  display: inline-block;
+}
+
 .roomContainer {
     position: relative;
     width: 100%;
@@ -246,4 +251,77 @@
     writing-mode: vertical-lr;
     text-orientation: sideways;
     transform: rotate(180deg);
+}
+
+.contact-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1000;
+    overflow-y: auto;
+
+ }
+
+ .phone-container{
+    position: relative;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .phone {
+    width: 100%; 
+    display: block;
+  }
+
+ /* .contact-buttons { 
+    margin: 20px; display: 
+    flex; gap: 20px; 
+}*/
+
+  .contact-buttons a { 
+    position: absolute;
+    background: #1b1b1b;
+    width: 1.5%;
+    height: 1.5%;
+    padding: 0.3% 1.2%;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-buttons .fa-linkedin {
+   top: 81.7%;
+   left: 24.1%;
+}
+
+.contact-buttons .fa-github {
+    top: 82.2%;
+    left: 33.4%;
+}
+
+.contact-buttons .fa-phone {
+    top: 79%;
+    left: 40%;
+}
+
+.close-btn { 
+    background: #070806; 
+    color: #ddd3c1; 
+    border: none; 
+    //padding: 8px 16px; 
+    border-radius: 6px; cursor: pointer;
+    position: absolute; 
+}
+
+.contact-buttons .close-btn {
+    top: 95%;
+    left: 46%;
 }

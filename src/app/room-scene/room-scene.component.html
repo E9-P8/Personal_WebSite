@@ -72,24 +72,6 @@
           *ngIf="!Contact"
           (click)="OpenContact()"
         />
-        <image
-          href="assets/tv.png"
-          x="50%"
-          y="50%"
-          width="800"
-          height="1200"
-          preserveAspectRatio="xMidYMid slice"
-          *ngIf="Contact"
-        />
-        <rect
-          x="50%"
-          y="50%"
-          width="200"
-          height="250"
-          class="Closebutton"
-          (click)="CloseContact()"
-          *ngIf="Contact"
-        />
       </g>
       <!-- Form -->
       <image
@@ -109,7 +91,20 @@
         (click)="OpenForm()"
       />
     </svg>
+     <div class="contact-container" *ngIf="Contact"> 
+        <div class="phone-container"> 
+          <img src="assets/contact-telefono.png" class="phone" /> 
+          <div class="contact-buttons"> 
+            <a href="https://my.linkedin.com/in/elisa-puorto/en" class="fab fa-linkedin" target="_blank"></a> 
+            <a href="https://github.com/E9-P8" class="fab fa-github" target="_blank"></a> 
+            <a href="https://calendly.com/puorto-elisa" class="fas fa-phone" alt="Prendiamoci un caffe virtuale" target="_blank"></a> 
+           <button class="close-btn" (click)="CloseContact()">Chiudi</button> 
+           </div>
+        </div> 
+      </div>
     <div class="form-container" *ngIf="Form">
+      <div class="form-macchina">
+        <img src="../assets/Macchina-form.png" class="form-image-macchina" />
       <div class="form-paper" *ngIf="paperVisible" [class.sended]="isSended">
         <form class="email-form">
           <div class="form-row">
@@ -162,11 +157,7 @@
           </div>
         </form>
       </div>
-
-      <div class="form-macchina">
-        <img src="../assets/Macchina-form.png" class="form-image-macchina" />
-
-        <!-- LEVA -->
+      
         <button type="button" class="form-lever" (click)="sendEmail()">
           Invia
         </button>
