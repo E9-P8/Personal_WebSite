@@ -9,7 +9,6 @@
     overflow-y: auto;
     background-color: #cdcbc1;
 }
-
 .frame-flip {
     width: 100vw;
     height: 100%;
@@ -17,40 +16,81 @@
     transform-style: preserve-3d;
     transition: transform 1s ease-in-out;
 }
-
 .frame-flip.flipped {
     transform: rotateY(180deg);
 }
-
 .frame-face {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: auto;
     backface-visibility: hidden;
-    object-fit: cover;
+    //object-fit: cover;
 
     img {
-        width: 100vw;
+        width: 100%;
         height: auto;
-        object-fit: cover; // riempie tutto lo schermo 
+        display: block;
+       // object-fit: cover; // riempie tutto lo schermo 
     }
 }
-
 .front {
     transform: rotateY(0deg);
 }
-
 .back {
     transform: rotateY(180deg);
+    position: relative;
 }
 
 .retro-text {
     position: absolute;
-    top: 20%;
+    top: 54%;
     left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 2rem;
+    transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 2; // sopra l’immagine retro 
+
+    line-height: 1.1;
+    padding: 17vh 2vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 59%;
+    height: 63%;
+    clip-path: ellipse(50% 50% at 50% 50%);
+
+    color: #1e0e03;
+    font-family: 'EB Garamond', serif;
+    z-index: 2;
+    font-size: clamp(0.3rem, 1.3vw, 1.2rem);
+}
+.retro-text div {
+    margin-bottom: 2.5vh;
+    opacity: 0.6;
+    transition: all 0.5s ease;
+    cursor: default;
+}
+
+.retro-text div:hover {
+    opacity: 1;text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    transform: scale(1.01);
+}
+
+@media (max-width: 768px) {
+    .retro-text .about-me-description {
+        max-height: 0;
+        opacity: 0;
+        margin: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
+    }
+
+    .retro-text .about-me-description.active {
+        max-height: 500px;
+        /* o auto con JS */
+        opacity: 1;
+        margin-bottom: 2.5vh;
+        /* ripristina lo spazio */
+    }
 }
