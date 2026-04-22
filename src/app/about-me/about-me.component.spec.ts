@@ -23,7 +23,7 @@ describe('AboutMeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
+/*
   function fitTextToOval(container) {
     const maxFont = 24;
     const minFont = 10;
@@ -47,14 +47,16 @@ describe('AboutMeComponent', () => {
     fitTextToOval(retroText);
   });
   
+
   document.querySelectorAll('.about-me-title').forEach(title => {
-    title.addEventListener('click', () => {
-      const desc = title.nextElementSibling;
-      if (desc && desc.classList.contains('about-me-description')) {
-        desc.classList.toggle('active');
-      }
-    });
-  });
+      title.addEventListener('click', () => {
+        const desc = (title as HTMLElement).nextElementSibling;
+  
+        if (desc && desc.classList.contains('about-me-description')) {
+          desc.classList.toggle('active');
+        }
+      });
+    });*/
   
   
   

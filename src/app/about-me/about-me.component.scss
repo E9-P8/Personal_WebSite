@@ -49,22 +49,24 @@
     text-align: center;
 
     line-height: 1.1;
-    padding: 17vh 2vw;
+    padding: 1vh 2vw;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    width: 59%;
+    width: 62%;
     height: 63%;
     clip-path: ellipse(50% 50% at 50% 50%);
+    background-color: rgba(255, 0, 0, 0.527);
 
     color: #1e0e03;
     font-family: 'EB Garamond', serif;
     z-index: 2;
-    font-size: clamp(0.3rem, 1.3vw, 1.2rem);
 }
+
+
 .retro-text div {
     margin-bottom: 2.5vh;
     opacity: 0.6;
@@ -88,9 +90,7 @@
 
     .retro-text .about-me-description.active {
         max-height: 500px;
-        /* o auto con JS */
         opacity: 1;
         margin-bottom: 2.5vh;
-        /* ripristina lo spazio */
     }
 }
