@@ -24,13 +24,11 @@
     width: 100vw;
     height: auto;
     backface-visibility: hidden;
-    //object-fit: cover;
 
     img {
         width: 100%;
         height: auto;
-        display: block;
-       // object-fit: cover; // riempie tutto lo schermo 
+        display: block; 
     }
 }
 .front {
@@ -40,43 +38,146 @@
     transform: rotateY(180deg);
     position: relative;
 }
-
-.retro-text {
+.oval-container{
     position: absolute;
     top: 54%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    width: 66%;
+    height: 64%;
+    clip-path: ellipse(50% 50% at 50% 50%);
+    //background-color: rgba(255, 0, 0, 0.527);
 
+    container-type: inline-size;
+}
+
+
+.retro-text {
+    text-align: center;
     line-height: 1.1;
     padding: 1vh 2vw;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    width: 62%;
-    height: 63%;
-    clip-path: ellipse(50% 50% at 50% 50%);
-    background-color: rgba(255, 0, 0, 0.527);
-
     color: #1e0e03;
     font-family: 'EB Garamond', serif;
     z-index: 2;
+
+    font-size: 2.5cqi;
 }
 
 
 .retro-text div {
     margin-bottom: 2.5vh;
-    opacity: 0.6;
+    opacity: 0.8;
     transition: all 0.5s ease;
     cursor: default;
 }
 
 .retro-text div:hover {
-    opacity: 1;text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    opacity: 1;text-shadow: 0 0 8px rgba(68, 43, 19, 0.432);
     transform: scale(1.01);
+}
+
+.retro-text div h5{
+    padding: 2vh 12vw 0vh 12vw;
+}
+
+.before-end {
+    padding: 0vh 4vw 0vh 4vw;
+}
+.end {
+    padding: 0vh 6vw 0vh 6vw;
+}
+
+.dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    z-index: 999;
+}
+
+.dark-overlay.active {
+    opacity: 1;
+}
+
+
+.foto-preview {
+    position: fixed;
+    transform: translateY(-50%) scale(0.8);
+    max-width: 40vw;
+    max-height: auto;
+
+    -webkit-mask-image: radial-gradient(circle, black 40%, rgba(0, 0, 0, 0) 90%);
+    mask-image: radial-gradient(circle, black 40%, rgba(0, 0, 0, 0) 90%);
+
+    filter: sepia(0.2) brightness(0.9) contrast(1.1);
+    
+    opacity: 0;
+    transition: opacity 0.8s ease,transform 1.2s ease-out;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.foto-preview.active {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.left-side {
+    left: 5%;
+    right: auto;
+}
+
+.right-side {
+    right: 5%;
+    left: auto;
+}
+
+.discover-it{
+    cursor: url('../../assets/lente.png') 16 16, auto;
+    font-weight: 600;
+    color: #dec57f;
+    transition: all 0.3s ease;
+    display: inline-block;
+
+    &:hover {
+        color: #685127;
+        text-shadow: 0 0 5px rgba(139, 69, 19, 0.2);
+    } }
+
+.close-btn{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.ContactMe{
+    background: none;
+    background-color: transparent;
+    margin-left: 3%;
+    border: none;
+    padding: 0;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    width: 7%;
+}
+
+.CloseAboutMe {
+    background: none;
+    display: flex;
+    flex-direction:row-reverse;
+    background-color: transparent;
+    margin-right: 3%;
+    border: none;
+    padding: 0;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    width: 7%;
 }
 
 @media (max-width: 768px) {
@@ -93,4 +194,53 @@
         opacity: 1;
         margin-bottom: 2.5vh;
     }
+
+        .oval-container {
+            position: absolute;
+            top: 53%;
+            left: 49%;
+            transform: translate(-50%, -50%);
+            width: 66%;
+            height: 64%;
+            clip-path: ellipse(50% 50% at 50% 50%);
+            //background-color: rgba(255, 0, 76, 0.527);
+    
+            container-type: inline-size;
+        }
+.retro-text {
+    font-size: 2.4cqi;
+}       
+}
+@media (max-width: 650px) {
+    .oval-container {
+        position: absolute;
+        top: 53%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        width: 65%;
+        height: 63%;
+        clip-path: ellipse(50% 50% at 50% 50%);
+        //background-color: rgba(94, 255, 0, 0.527);
+
+        container-type: inline-size;
+    }
+.retro-text {
+    font-size: 2.3cqi;   }
+}
+@media (max-width: 500px) {
+    .oval-container {
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65%;
+            height: 64%;
+            clip-path: ellipse(50% 50% at 50% 50%);
+            //background-color: rgba(47, 0, 255, 0.527);
+    
+            container-type: inline-size;
+        }
+ .retro-text {
+    font-size: 2.2cqi;
+                }       
 }

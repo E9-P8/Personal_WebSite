@@ -91,73 +91,86 @@
         (click)="OpenForm()"
       />
     </svg>
-     <div class="contact-container" *ngIf="Contact"> 
-        <div class="phone-container"> 
-          <img src="assets/contact-telefono.png" class="phone" /> 
-          <div class="contact-buttons"> 
-            <a href="https://my.linkedin.com/in/elisa-puorto/en" class="fab fa-linkedin" target="_blank"></a> 
-            <a href="https://github.com/E9-P8" class="fab fa-github" target="_blank"></a> 
-            <a href="https://calendly.com/puorto-elisa" class="fas fa-phone" alt="Prendiamoci un caffe virtuale" target="_blank"></a> 
-           <button class="close-btn" (click)="CloseContact()">Chiudi</button> 
-           </div>
-        </div> 
+    <div class="contact-container" *ngIf="Contact">
+      <div class="phone-container">
+        <img src="assets/contact-telefono.png" class="phone" />
+        <div class="contact-buttons">
+          <a
+            href="https://my.linkedin.com/in/elisa-puorto/en"
+            class="fab fa-linkedin"
+            target="_blank"
+          ></a>
+          <a
+            href="https://github.com/E9-P8"
+            class="fab fa-github"
+            target="_blank"
+          ></a>
+          <a
+            href="https://calendly.com/puorto-elisa"
+            class="fas fa-phone"
+            alt="Prendiamoci un caffe virtuale"
+            target="_blank"
+          ></a>
+          <button class="close-btn" (click)="CloseContact()">Chiudi</button>
+        </div>
       </div>
+    </div>
     <div class="form-container" *ngIf="Form">
       <div class="form-macchina">
         <img src="../assets/Macchina-form.png" class="form-image-macchina" />
-      <div class="form-paper" *ngIf="paperVisible" [class.sended]="isSended">
-        <form class="email-form">
-          <div class="form-row">
+        <div class="form-paper" *ngIf="paperVisible" [class.sended]="isSended">
+          <form class="email-form">
+            <div class="form-row">
+              <div class="field">
+                <label>Nome</label>
+                <input
+                  type="text"
+                  placeholder="Nome"
+                  [(ngModel)]="form.name"
+                  name="name"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label>Cognome</label>
+                <input
+                  type="text"
+                  placeholder="Cognome"
+                  [(ngModel)]="form.surname"
+                  name="surname"
+                  required
+                />
+              </div>
+            </div>
+
             <div class="field">
-              <label>Nome</label>
+              <label>Email</label>
               <input
-                type="text"
-                placeholder="Nome"
-                [(ngModel)]="form.name"
-                name="name"
+                type="email"
+                placeholder="Email"
+                [(ngModel)]="form.email"
+                name="email"
                 required
               />
             </div>
 
             <div class="field">
-              <label>Cognome</label>
-              <input
-                type="text"
-                placeholder="Cognome"
-                [(ngModel)]="form.surname"
-                name="surname"
+              <label>Scrivimi qui la tua richiesta</label>
+              <textarea
+                placeholder="..."
+                [(ngModel)]="form.message"
+                name="message"
                 required
-              />
+              ></textarea>
             </div>
-          </div>
 
-          <div class="field">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Email"
-              [(ngModel)]="form.email"
-              name="email"
-              required
-            />
-          </div>
+            <div class="form-actions">
+              <button type="button" (click)="CloseForm()">Chiudi</button>
+            </div>
+          </form>
+        </div>
 
-          <div class="field">
-            <label>Scrivimi qui la tua richiesta</label>
-            <textarea
-              placeholder="..."
-              [(ngModel)]="form.message"
-              name="message"
-              required
-            ></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button type="button" (click)="CloseForm()">Chiudi</button>
-          </div>
-        </form>
-      </div>
-      
         <button type="button" class="form-lever" (click)="sendEmail()">
           Invia
         </button>

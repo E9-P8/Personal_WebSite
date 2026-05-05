@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, ChangeDetectorRef, SimpleChanges } from '@angular/core';
+
 
 @Component({
   selector: 'app-room-scene',
@@ -12,10 +13,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class RoomSceneComponent implements OnInit {
 
 
-  constructor() { }
+  constructor() {
+   }
 
-  ngOnInit(): void {
-  }
+
+
   roomIsVisible = true;
   showProject = false; 
 
@@ -26,13 +28,28 @@ export class RoomSceneComponent implements OnInit {
   paperVisible = true;
   isSended= false;
 
+  
+
   @Output() projectOpened = new EventEmitter<void>(); 
   @Output() tvClicked = new EventEmitter<void>(); 
 
   @Output() AboutMeOpened = new EventEmitter<void>(); 
   @Output() frameClicked = new EventEmitter<void>(); 
+  @Input() ContactMe: boolean = false; 
 
     
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['ContactMe'] && changes['ContactMe'].currentValue) {
+      console.log("Apertura telefono confermata!");
+      this.OpenContact();
+    }
+  }
+  ngOnInit() {
+    if (this.ContactMe) {
+      this.OpenContact();
+      console.log("figlio in ascolto")
+    }
+  }
   OpenAboutMe(){
     this.AboutMeOpened.emit(); 
     this.frameClicked.emit();
@@ -43,16 +60,16 @@ export class RoomSceneComponent implements OnInit {
     this.Form = false;
     this.AboutMe = false;
   }
-  OpenForm(){
-    this.Form = true;
-    this.AboutMe = false;
-    this.Contact = false;
-  }
- 
   CloseContact(){
     this.Contact = false;
     this.Form = false;
     this.AboutMe = false;
+  }
+
+  OpenForm(){
+    this.Form = true;
+    this.AboutMe = false;
+    this.Contact = false;
   }
   CloseForm(){
     this.Form = false;
@@ -91,7 +108,6 @@ export class RoomSceneComponent implements OnInit {
     };
   }, 700);
   }
-
 
   OpenProject() { 
     this.projectOpened.emit(); 

@@ -20,6 +20,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
 
   @Output() AboutMeClosed = new EventEmitter<void>(); 
   @Output() frameClicked = new EventEmitter<void>();
+  @Output() contactRequested = new EventEmitter<void>();
 
   flipped = false;
   private resizeTimeout: any;
@@ -29,55 +30,56 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.flipped = true;
-    }, 100);
+    }, 200);
   }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
-      // primo calcolo
-      this.fitTextToOval();
-
-      // resize
-      window.addEventListener("resize", () => {
-        clearTimeout(this.resizeTimeout);
-        this.resizeTimeout = setTimeout(() => {
-          this.fitTextToOval();
-        }, 150);
-      });
-
-      // toggle descrizioni su mobile
+      
+      //mobile
       document.querySelectorAll('.about-me-title').forEach(title => {
         title.addEventListener('click', () => {
           const desc = (title as HTMLElement).nextElementSibling;
           if (desc && desc.classList.contains('about-me-description')) {
             desc.classList.toggle('active');
-            setTimeout(() => this.fitTextToOval(), 500);
           }
         });
       });
     });
   }
 
-  private fitTextToOval() {
-    const container = this.retroText.nativeElement;
-    const maxFont = 24;
-    const minFont = 10;
-    let fontSize = maxFont;
-
-    container.style.fontSize = fontSize + "px";
-
-    while (container.scrollHeight > container.clientHeight && fontSize > minFont) {
-      fontSize--;
-      container.style.fontSize = fontSize + "px";
-    }
-  }
 
   CloseAboutMe() {
     this.flipped = false;
     setTimeout(() => {
       this.AboutMeClosed.emit(); 
       this.frameClicked.emit();
-      this.fitTextToOval(); // ricalcolo dopo chiusura
-    }, 1000);
+    }, 1500);
   }
+
+  ContactMe() {
+    this.flipped = false;
+    console.log("chiudi about me");
+    setTimeout(() => {
+      this.contactRequested.emit();
+      this.AboutMeClosed.emit(); 
+      this.frameClicked.emit();
+    }, 100);}
+
+
+
+activePhoto: string | null = null;
+activeSide: 'left' | 'right' = 'right';
+randomTop: string = '50%';
+
+showPhoto(url: string, side: 'left' | 'right' = 'right') {
+  this.activePhoto = url;
+  this.activeSide = side;
+  const randomY = Math.floor(Math.random() * (80 - 20 + 1) + 20);
+  this.randomTop = randomY + '%';
+}
+hidePhoto() {
+  this.activePhoto = null;
+}
+
 }

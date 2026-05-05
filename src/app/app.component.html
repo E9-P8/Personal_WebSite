@@ -1,7 +1,11 @@
 <div class="main-Page">
   <section id="LockScene" *ngIf="LockScene">
     <div class="lockWrapper">
-      <img src="../assets/Serratura.png" alt="" class="lockItem lackLayer" />
+      <img
+        src="../assets/Serratura.png"
+        alt="Serratura"
+        class="lockItem lackLayer"
+      />
       <img
         src="../assets/Chiave.png"
         alt=""
@@ -21,9 +25,8 @@
     *ngIf="roomIsVisible"
     (tvClicked)="OpenProject()"
     (frameClicked)="OpenAboutMe()"
-  >
-    ></app-room-scene
-  >
+    [ContactMe]="shouldOpenPhone"
+  ></app-room-scene>
   <app-project
     *ngIf="showProject"
     (ProjectClosed)="CloseProject()"
@@ -31,6 +34,6 @@
   <app-about-me
     *ngIf="showAboutMe"
     (AboutMeClosed)="CloseAboutMe()"
+    (contactRequested)="handleContactRequest()"
   ></app-about-me>
-
 </div>

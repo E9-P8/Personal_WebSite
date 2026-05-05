@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +17,8 @@ export class AppComponent {
   showProject = false; 
   showProjectContent = false;
   LockScene = true;
+
+  shouldOpenPhone = false;
 
   showAboutMe = false;
 
@@ -49,10 +49,21 @@ OpenAboutMe(){
   this.showAboutMe= true;
   this.roomIsVisible = false; 
   this.showProject = false;
+  this.shouldOpenPhone= false;
 } 
 CloseAboutMe(){
   this.showAboutMe= false;
   this.roomIsVisible = true; 
   this.showProject = false;
-} 
+  this.shouldOpenPhone= false;
+}
+handleContactRequest() {
+  console.log("padre in ascolto");
+  this.showAboutMe = false;    
+  this.roomIsVisible = true;   
+  setTimeout(() => {
+    this.shouldOpenPhone = true; 
+    console.log("Comando shouldOpenPhone inviato!");
+  }, 50); 
+}
 }

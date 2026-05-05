@@ -300,6 +300,14 @@
 .contact-buttons .fa-linkedin {
    top: 81.7%;
    left: 24.1%;
+   transition: all 0.3s ease-in-out;
+}
+
+.fa-linkedin:hover,
+.fa-github:hover,
+.fa-phone:hover{
+    text-shadow: 0 0 2px #ae875f;
+    box-shadow: 0 0 8px #ae875f, 0 0 15px rgb(9 4 0);
 }
 
 .contact-buttons .fa-github {
