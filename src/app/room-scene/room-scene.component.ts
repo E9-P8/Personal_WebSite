@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input, ChangeDetectorRef, SimpleChanges } from '@angular/core';
-
+import { AudioService } from'../services/audio.service';
 
 @Component({
   selector: 'app-room-scene',
@@ -13,9 +13,8 @@ import { Component, OnInit, EventEmitter, Output, Input, ChangeDetectorRef, Simp
 export class RoomSceneComponent implements OnInit {
 
 
-  constructor() {
+  constructor(private audioService: AudioService) {
    }
-
 
 
   roomIsVisible = true;
@@ -28,7 +27,7 @@ export class RoomSceneComponent implements OnInit {
   paperVisible = true;
   isSended= false;
 
-  
+  isAudioMuted = false;
 
   @Output() projectOpened = new EventEmitter<void>(); 
   @Output() tvClicked = new EventEmitter<void>(); 
@@ -45,6 +44,7 @@ export class RoomSceneComponent implements OnInit {
     }
   }
   ngOnInit() {
+
     if (this.ContactMe) {
       this.OpenContact();
       console.log("figlio in ascolto")
@@ -59,22 +59,27 @@ export class RoomSceneComponent implements OnInit {
     this.Contact = true;
     this.Form = false;
     this.AboutMe = false;
+    this.audioService.play('phone'); 
   }
   CloseContact(){
     this.Contact = false;
     this.Form = false;
     this.AboutMe = false;
+    this.audioService.stop('phone');
   }
 
   OpenForm(){
     this.Form = true;
     this.AboutMe = false;
     this.Contact = false;
+    this.audioService.play('macchina');
+    console.log("macchina")
   }
   CloseForm(){
     this.Form = false;
     this.AboutMe = false;
     this.Contact = false;
+    this.audioService.stop('macchina');
   }
 
   form = {
@@ -96,22 +101,34 @@ export class RoomSceneComponent implements OnInit {
   }
 
   this.isSended = true;
-
+  this.audioService.play('send');
   setTimeout(() => {
     this.isSended = false;
-
     this.form = {
       name: '',
       surname: '',
       email: '',
       message: ''
     };
-  }, 700);
+  }, 1000);
   }
 
   OpenProject() { 
     this.projectOpened.emit(); 
     this.tvClicked.emit();
+  }
+
+  toggleRoomMusic() {
+    this.isAudioMuted = this.audioService.toggleGlobalMute();
+
+    /*const isPlaying = this.audioService.togglePlay('room');
+    this.isAudioMuted = !isPlaying;
+    
+    console.log("Mute attivo?", this.isAudioMuted);*/
+    if (!this.isAudioMuted) {
+      this.audioService.play('room');
+    }
+    
   }
 
 }

@@ -2,23 +2,14 @@
   position: relative;  
   display: inline-block;
 }
-
 .roomContainer {
     position: relative;
     width: 100%;
 }
-
 .roomImage {
     width: 100%;
     height: auto;
     display: block;
-}
-
-.roomOverlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .button {
@@ -27,24 +18,11 @@
     fill: transparent;
 
 }
-
 .tv-hitbox {
     fill: transparent;
     pointer-events: all;
     cursor: pointer;
 }
-
-.tv-glitch {
-    pointer-events: none;
-
-    transform-box: fill-box;
-    transform-origin: center;
-
-    animation: tvGlitch 0.15s infinite;
-    opacity: 0.85;
-    mix-blend-mode: screen;
-}
-
 .roomOverlay {
     position: absolute;
     inset: 0;
@@ -53,18 +31,12 @@
     pointer-events: none;
 }
 
-.Closebutton {
-    fill: rgb(255, 115, 0);
-    pointer-events: all;
-    cursor: pointer;
-}
 
 .tv-project {
     transform-box: fill-box;
     transform-origin: center;
     transition: transform 0.4s ease;
 }
-
 .tv-icon {
     fill: #130f06;
     font-family: 'Courier New', monospace;
@@ -73,7 +45,6 @@
     pointer-events: none;
     text-shadow: 0 0 5px black;
 }
-
 .tv-glitch {
     pointer-events: none;
 
@@ -89,11 +60,9 @@
 .tv-project:hover {
     transform: scale(1.4);
 }
-
 .tv-project:hover .tv-glitch {
     animation-play-state: paused;
 }
-
 @keyframes tvGlitch {
     0% {
         transform: translate(0, 0);
@@ -115,8 +84,6 @@
         transform: translate(0, 0);
     }
 }
-
-
 .vortex-layer {
     position: absolute;
     top: 0;
@@ -135,6 +102,13 @@
     margin: 0 auto;
     width: 100%;
 }
+.form-macchina{
+    position: relative;
+    width: 70%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: block;
+}
 
 .form-image-macchina {
     width: 100%;
@@ -146,7 +120,7 @@
 
 .form-paper {
     position: absolute;
-    height: 70%;
+    height: 50%;
     left: 50%;
     width: 43%;
     bottom: 0;
@@ -161,12 +135,13 @@
 
     padding: 3%;
     box-sizing: border-box;
-}
 
+    container-type: inline-size;
+    container-name: paper;
+}
 .form-paper.enter {
     transform: translateX(-50%) translateY(100%);
 }
-
 .form-paper.sended {
     //animation: paperExit 0.25s ease-in forwards;
     animation: paperExit 0.28s cubic-bezier(.8, 0, .9, .2) forwards;
@@ -184,7 +159,6 @@
         transform: translateX(-50%) translateY(-30%);
     }
 }
-
 @keyframes paperExit {
     from {
         transform: translateX(-50%) translateY(-30%);
@@ -199,9 +173,10 @@
 .email-form {
     display: flex;
     flex-direction: column;
-    gap: 1.4em;
-    font-size: clamp(10px, 1.1x, 18px);
+    gap: 1cqi;
+    font-size: clamp(10px, 3.5cqi, 18px);
     margin-bottom: 0.3em;
+    line-height: 1.2;
 }
 
 .email-form input,
@@ -219,40 +194,36 @@
     resize: none;
     height: 8em;
 }
-
 .form-actions button {
     font-size: clamp(10px, 1vw, 16px);
     padding: 0.6em 1.4em;
     background-color: #d2c19e;
 }
-
 .form-row {
     display: flex;
     gap: 1em;
 }
-
 .field {
     display: flex;
     flex: 1;
     flex-direction: column;
 }
-
 .form-lever {
     position: absolute;
-    height: 80px;
-    width: 40px;
-    font-size: large;
-    background-color: #d0c9bb;
-    cursor: pointer;
-    top: 48%;
-    left: 23%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 18%;
+    width: 3%;
+    height: 3%;
+
+    transform: translate(-50%, -50%) rotate(180deg);
     z-index: 10;
+
+    background-color: #d0c9bb;
+    border: none;
+    cursor: pointer;
     writing-mode: vertical-lr;
     text-orientation: sideways;
-    transform: rotate(180deg);
 }
-
 .contact-container {
     position: fixed;
     inset: 0;
@@ -273,19 +244,13 @@
  }
 
  .phone {
-    width: 100%; 
+    width: 80%; 
     display: block;
   }
-
- /* .contact-buttons { 
-    margin: 20px; display: 
-    flex; gap: 20px; 
-}*/
-
-  .contact-buttons a { 
+.contact-buttons a { 
     position: absolute;
     background: #1b1b1b;
-    width: 1.5%;
+    width: 1%;
     height: 1.5%;
     padding: 0.3% 1.2%;
     border-radius: 50%;
@@ -296,40 +261,72 @@
     align-items: center;
     justify-content: center;
 }
-
-.contact-buttons .fa-linkedin {
-   top: 81.7%;
-   left: 24.1%;
-   transition: all 0.3s ease-in-out;
-}
-
 .fa-linkedin:hover,
 .fa-github:hover,
-.fa-phone:hover{
+.fa-phone:hover {
     text-shadow: 0 0 2px #ae875f;
-    box-shadow: 0 0 8px #ae875f, 0 0 15px rgb(9 4 0);
+    box-shadow: 0 0 9px #ae875f, 0 0 15px rgb(9 4 0);
+    transform: scale(0.95) translateY(2px);
+    transition: all 0.2s ease;
 }
-
+.contact-buttons .fa-linkedin {
+   top: 81.7%;
+   left: 29.1%;
+   transition: all 0.3s ease-in-out;
+}
 .contact-buttons .fa-github {
     top: 82.2%;
-    left: 33.4%;
+    left: 36.4%;
+    transition: all 0.3s ease-in-out;
 }
-
 .contact-buttons .fa-phone {
     top: 79%;
-    left: 40%;
-}
-
-.close-btn { 
-    background: #070806; 
-    color: #ddd3c1; 
-    border: none; 
-    //padding: 8px 16px; 
-    border-radius: 6px; cursor: pointer;
-    position: absolute; 
+    left: 42%;
+    transition: all 0.3s ease-in-out;
 }
 
 .contact-buttons .close-btn {
+    position: absolute;
+
     top: 95%;
     left: 46%;
+
+    background: #070806;
+    color: #ddd3c1;
+    border: none;
+
+    width: 8%;
+    height: 3%;
+
+    padding: 0.3% 1.2%;
+    font-size: 1vw;
+
+    border-radius: 0.4vw;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.volume {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    width: 3%;
+    height: 1.8%;
+    top: 35.5%;
+    left: 27.3%;
+}
+.volume button {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    appearance: none;
+    cursor: pointer;
+
+    width: 100%;
+    height: 100%;
 }

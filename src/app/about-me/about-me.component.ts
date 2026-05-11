@@ -8,6 +8,7 @@ import {
   EventEmitter,
   NgZone
 } from '@angular/core';
+import { AudioService } from'../services/audio.service';
 
 @Component({
   selector: 'app-about-me',
@@ -25,7 +26,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   flipped = false;
   private resizeTimeout: any;
 
-  constructor(private ngZone: NgZone) {}
+  constructor(private ngZone: NgZone, private audioService: AudioService) {}
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -55,6 +56,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
       this.AboutMeClosed.emit(); 
       this.frameClicked.emit();
     }, 1500);
+    this.audioService.play('stanza', true);
   }
 
   ContactMe() {
@@ -64,7 +66,9 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
       this.contactRequested.emit();
       this.AboutMeClosed.emit(); 
       this.frameClicked.emit();
-    }, 100);}
+    }, 100);
+    this.audioService.play('phone'); 
+  }
 
 
 

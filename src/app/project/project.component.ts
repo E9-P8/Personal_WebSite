@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, AfterViewInit, Input, OnInit, ElementRef, ViewChild  } from '@angular/core';
-
+import { AudioService } from '../services/audio.service';
 
 @Component({
   selector: 'app-project',
@@ -7,6 +7,9 @@ import { Component, Output, EventEmitter, AfterViewInit, Input, OnInit, ElementR
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent{
+
+  constructor(private audioService: AudioService) {
+  }
 
   @Output() ProjectClosed = new EventEmitter<void>(); 
   @ViewChild('tvInterface') tvInterface!: ElementRef;
@@ -23,6 +26,7 @@ export class ProjectComponent{
 
     // entrata tunnel
     onAnimationEnd(event: AnimationEvent) {
+      this.audioService.play('project', true);
         if ((event.target as HTMLElement).classList.contains('tunnelRing')) {
           this.endedCount++;
           if (this.endedCount === this.rings.length) {
