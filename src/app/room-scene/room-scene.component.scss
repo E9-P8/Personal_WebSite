@@ -18,11 +18,6 @@
     fill: transparent;
 
 }
-.tv-hitbox {
-    fill: transparent;
-    pointer-events: all;
-    cursor: pointer;
-}
 .roomOverlay {
     position: absolute;
     inset: 0;
@@ -30,20 +25,14 @@
     height: 100%;
     pointer-events: none;
 }
-.roomOverlay svg{
-    width: 100%;
-    height: 100%;
-}
-svg {
-    width: 100%;
-    height: auto;
-    display: block; }
-    
+
+
 .tv-project {
     transform-box: fill-box;
     transform-origin: center;
     transition: transform 0.4s ease;
 }
+
 .tv-icon {
     fill: #130f06;
     font-family: 'Courier New', monospace;
@@ -51,6 +40,13 @@ svg {
     font-weight: bold;
     pointer-events: none;
     text-shadow: 0 0 5px black;
+}
+.tv-hitbox {
+    fill: transparent;
+    pointer-events: all;
+    cursor: pointer;
+    
+    
 }
 .tv-glitch {
     pointer-events: none;
@@ -104,7 +100,7 @@ svg {
     background: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     z-index: 999;
     margin: 0 auto;
     width: 100%;
@@ -113,8 +109,10 @@ svg {
     position: relative;
     width: 70%;
     max-width: 900px;
-    margin: 0 auto;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    line-height: 0;
 }
 
 .form-image-macchina {
@@ -123,13 +121,14 @@ svg {
     position: relative;
     z-index: 2;
     pointer-events: none;
+    margin-bottom: 0;
 }
 
 .form-paper {
     position: absolute;
     height: 50%;
     left: 50%;
-    width: 43%;
+    width: 50%;
     bottom: 0;
     background: #d2c19e;
     z-index: 1;
@@ -175,13 +174,11 @@ svg {
         transform: translateX(-50%) translateY(-100%);
     }
 }
-
-
 .email-form {
     display: flex;
     flex-direction: column;
     gap: 1cqi;
-    font-size: clamp(10px, 3.5cqi, 18px);
+    font-size: clamp(8px, 5.5cqi, 18px);
     margin-bottom: 0.3em;
     line-height: 1.2;
 }
@@ -337,45 +334,160 @@ svg {
     width: 100%;
     height: 100%;
 }
-@media (max-width: 570px) {
+
+
+
+@media screen and(max-width: 570px) {
+  
     .roomContainer {
+        position: relative;
+        display: inline-block;
         width: 100%;
         height: auto;
-        /* lascia che l’immagine decida l’altezza */
         overflow: auto;
-        /* abilita scroll verticale e orizzontale */
         -webkit-overflow-scrolling: touch;
-        /* scroll fluido su iOS */
     }
 
     .roomImage {
         width: auto;
-        /* non forzare larghezza */
         height: auto;
-        /* mantiene proporzioni */
         max-width: none;
-        /* evita ridimensionamento forzato */
         max-height: none;
+        display: block;   
+    }
+    .roomOverlay{
+        width: 1080px;
+        height: 1278px;
+    }
+    
+    .form-lever {
+        top: 61%;
+        left: 13%;
+        width: 4%;
+        height: 6%;
+    }
+    .form-macchina {
+        margin-bottom: -10vw;
+        width: 100%;
+    }
+    .form-paper {
+        bottom: -0vw;
+        height: 60%;
+        transform: translateX(-50%) translateY(100%);
+    }
+    .contact-container {
+        position: fixed;
+        inset: 0;
         display: block;
+        overflow-y: auto;
+        overflow-x: auto;
     }
 
-    .roomOverlay {
-        position: absolute;
-        inset: 0;
+    .phone-container {
         width: 100%;
-        height: 100%;
-        pointer-events: none;
+        min-height: 100%;
+        display: block;
     }
-        .roomOverlay rect,
-        .roomOverlay image,
-        .roomOverlay text {
-            transform: scale(1.5);
-            transform-origin: center;
+    .phone {
+        width: 150%;
+        height: auto;
+        display: block;
+       }
+    .contact-buttons a {
+        position: absolute;
+        width: 4.5%;
+        height: 1.9%;
+        font-size: 2vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-buttons .fa-linkedin {
+        top: 81.5%;
+        left: 35.5%;
+    }
+    .contact-buttons .fa-github {
+        top: 82%;
+        left: 49.4%;
+    }
+    .contact-buttons .fa-phone {
+        top: 78.8%;
+        left: 59.5%;
+    }
+    .contact-buttons .close-btn {
+        top: 94%;
+        left: 71%;
+        width: 11%;
+        height: 3%;
+        font-size: 2vw;
         }
-                .tv-project rect,
-                .tv-project image,
-                .tv-project text {
-                    transform: scale(0.7);
-                    transform-origin: center;
-                }
+    .volume {
+        position: absolute;
+        top: 454px;
+        left: 295px;
+        width: 33px; }
+      
+}
+
+@media screen and(min-width: 571px){
+    .contact-container {
+        justify-content: center;
+        align-items: flex-end;   
+    }
+    .phone-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;    
+    }
+
+    .form-image-macchina{
+        margin-bottom: -10vw;
+    }
+    .form-paper {
+        bottom: -5vw;
+        height: 57%;
+        transform: translateX(-50%) translateY(100%);
+    }
+    .form-lever {
+        top: 66%;
+        left: 13%;
+        width: 4%;
+        height: 6%;
+    }
+}
+@media screen and(min-width: 900px) {
+    .form-image-macchina {
+        margin-bottom: -20vw;
+    }
+
+    .form-paper {
+        bottom: -15vw;
+        height: 60%;
+        transform: translateX(-50%) translateY(100%);
+    }
+    .form-lever {
+        top: 74%;
+        left: 13%;
+        width: 3%;
+        height: 4%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .form-image-macchina {
+        margin-bottom: -25vw;
+    }
+
+    .form-paper {
+        bottom: -20vw;
+        height: 60%;
+        transform: translateX(-50%) translateY(100%);
+    }
+    .form-lever{
+        top: 80%;
+        left: 13%;
+        width: 3%;
+        height: 5%;
+    }
 }
