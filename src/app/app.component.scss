@@ -1,0 +1,67 @@
+.main-Page {
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+    }
+
+.lockWrapper{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+.lockItem{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    max-width: 40%;
+};
+
+.lockWrapper p{
+    position: absolute;
+    top: 49%;
+    left: 59%;
+    color: #d6bd8a;
+    font-size: 1.2rem;
+    font-family: 'Pinyon Script', cursive;
+}
+
+.key{
+    position: absolute;
+    left: 50%;
+    height: auto;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transform-origin: 55% 52%;
+    transition: transform 0.35s ease-out;
+    cursor: pointer;
+};  
+
+.keyRotate{
+   // transform: rotate(15deg);
+    transform: translate(-50%, -50%) rotate(15deg);
+};
+
+.frontLayer{
+    z-index: 3;
+    pointer-events: none;
+};
+.backLayer{
+    z-index: 1;
+};
+
+.lockScene{
+    height: 100vh;
+    overflow: hidden;
+};
+#LockScene {
+    position: relative;
+    z-index: 10;}
+
+

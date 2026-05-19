@@ -1,0 +1,531 @@
+.overlay-container {
+  position: relative;  
+  display: inline-block;
+}
+.roomContainer {
+    position: relative;
+    width: 100%;
+}
+.roomImage {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.button {
+    pointer-events: all;
+    cursor: pointer;
+    fill: transparent;
+
+}
+.roomOverlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+
+.tv-project {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.4s ease;
+}
+
+.tv-icon {
+    fill: #130f06;
+    font-family: 'Courier New', monospace;
+    font-size: 25px;
+    font-weight: bold;
+    pointer-events: none;
+    text-shadow: 0 0 5px black;
+}
+.tv-hitbox {
+    fill: transparent;
+    pointer-events: all;
+    cursor: pointer;
+    
+    
+}
+.tv-glitch {
+    pointer-events: none;
+
+    transform-box: fill-box;
+    transform-origin: center;
+
+    animation: tvGlitch 0.15s infinite;
+    transition: transform 0.4s ease-in-out;
+    mix-blend-mode: normal;
+}
+
+
+.tv-project:hover {
+    transform: scale(1.4);
+}
+.tv-project:hover .tv-glitch {
+    animation-play-state: paused;
+}
+@keyframes tvGlitch {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-1px, 0);
+    }
+
+    50% {
+        transform: translate(1px, 0);
+    }
+
+    75% {
+        transform: translate(0, -1px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+.vortex-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.form-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 999;
+    margin: 0 auto;
+    width: 100%;
+}
+.form-macchina{
+    position: relative;
+    width: 70%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    line-height: 0;
+}
+
+.form-image-macchina {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    margin-bottom: 0;
+}
+
+.form-paper {
+    position: absolute;
+    height: 50%;
+    left: 50%;
+    width: 50%;
+    bottom: 0;
+    background: radial-gradient(circle,
+                rgba(225, 205, 170, 1) 0%,
+                rgba(205, 180, 145, 1) 45%,
+                rgba(180, 150, 115, 1) 75%,
+                rgba(150, 120, 95, 1) 100%
+            );
+    z-index: 1;
+
+    animation: paperEnter 1s ease-out forwards;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 3%;
+    box-sizing: border-box;
+
+    container-type: inline-size;
+    container-name: paper;
+}
+.form-paper.enter {
+    transform: translateX(-50%) translateY(100%);
+}
+.form-paper.sended {
+    //animation: paperExit 0.25s ease-in forwards;
+    animation: paperExit 0.28s cubic-bezier(.8, 0, .9, .2) forwards;
+    transform: translateX(-50%) translateY(-150vh) rotate(-5deg);
+    opacity: 0;
+    transition: transform 0.6s ease-in, opacity 0.4s ease-in;
+}
+
+@keyframes paperEnter {
+    from {
+        transform: translateX(-50%) translateY(100%);
+    }
+
+    to {
+        transform: translateX(-50%) translateY(-30%);
+    }
+}
+@keyframes paperExit {
+    from {
+        transform: translateX(-50%) translateY(-30%);
+    }
+
+    to {
+        transform: translateX(-50%) translateY(-100%);
+    }
+}
+.email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1cqi;
+    font-size: clamp(8px, 5.5cqi, 18px);
+    margin-bottom: 0.3em;
+    line-height: 1.2;
+}
+
+.email-form input,
+.email-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6em 0.7em;
+
+    border: none;
+    border-bottom: 1px solid #6b5a3cad;
+    background: transparent;
+}
+
+.email-form textarea {
+    resize: none;
+    height: 8em;
+}
+.form-actions button {
+    font-size: clamp(10px, 1vw, 16px);
+    padding: 0.6em 1.4em;
+    background-color: #d2c19e;
+}
+.form-row {
+    display: flex;
+    gap: 1em;
+}
+.field {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.form-lever {
+    position: absolute;
+    top: 50%;
+    left: 18%;
+    width: 3%;
+    height: 3%;
+
+    transform: translate(-50%, -50%) rotate(180deg);
+    z-index: 10;
+
+    background-color: #d0c9bb;
+    border: none;
+    cursor: pointer;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+}
+.popup-overlay {
+    position: fixed;
+        top: 30px; // in alto
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+}
+
+.popup {
+    background: radial-gradient(circle,
+                rgba(225, 205, 170, 1) 0%,
+                rgba(205, 180, 145, 1) 45%,
+                rgba(180, 150, 115, 1) 75%,
+                rgba(150, 120, 95, 1) 100%);
+    border: 2px solid #3b2f2f; // marrone scuro
+    border-radius: 6px;
+    padding: 20px 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    font-family: 'Courier New', Courier, monospace; // font da macchina da scrivere
+    text-align: center;
+    max-width: 420px;
+    animation: fadeInDown 0.6s ease-out;
+}
+.btn-popup{
+    background: #3b2f2f;
+        color: #fff;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: 'Courier New', Courier, monospace;
+        //transition: background 0.3s ease;
+}
+.contact-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1000;
+    overflow-y: auto;
+
+ }
+
+ .phone-container{
+    position: relative;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .phone {
+    width: 80%; 
+    display: block;
+  }
+.contact-buttons a { 
+    position: absolute;
+    background: #1b1b1b;
+    width: 1%;
+    height: 1.5%;
+    padding: 0.3% 1.2%;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-linkedin:hover,
+.fa-github:hover,
+.fa-phone:hover {
+    text-shadow: 0 0 2px #ae875f;
+    box-shadow: 0 0 9px #ae875f, 0 0 15px rgb(9 4 0);
+    transform: scale(0.95) translateY(2px);
+    transition: all 0.2s ease;
+}
+.contact-buttons .fa-linkedin {
+   top: 81.7%;
+   left: 29.1%;
+   transition: all 0.3s ease-in-out;
+}
+.contact-buttons .fa-github {
+    top: 82.2%;
+    left: 36.4%;
+    transition: all 0.3s ease-in-out;
+}
+.contact-buttons .fa-phone {
+    top: 79%;
+    left: 42%;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-buttons .close-btn {
+    position: absolute;
+
+    top: 95%;
+    left: 46%;
+
+    background: #070806;
+    color: #ddd3c1;
+    border: none;
+
+    width: 8%;
+    height: 3%;
+
+    padding: 0.3% 1.2%;
+    font-size: 1vw;
+
+    border-radius: 0.4vw;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.volume {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    width: 3%;
+    height: 1.8%;
+    top: 35.5%;
+    left: 27.3%;
+}
+.volume button {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    appearance: none;
+    cursor: pointer;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+
+@media screen and(max-width: 570px) {
+  
+    .roomContainer {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .roomImage {
+        width: auto;
+        height: auto;
+        max-width: none;
+        max-height: none;
+        display: block;   
+    }
+    .roomOverlay{
+        width: 1080px;
+        height: 1278px;
+    }
+    
+    .form-lever {
+        top: 61%;
+        left: 13%;
+        width: 4%;
+        height: 6%;
+    }
+    .form-macchina {
+        margin-bottom: -10vw;
+        width: 100%;
+    }
+    .form-paper {
+        bottom: -0vw;
+        height: 60%;
+        transform: translateX(-50%) translateY(100%);
+    }
+    .contact-container {
+        position: fixed;
+        inset: 0;
+        display: block;
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    .phone-container {
+        width: 100%;
+        min-height: 100%;
+        display: block;
+    }
+    .phone {
+        width: 150%;
+        height: auto;
+        display: block;
+       }
+    .contact-buttons a {
+        position: absolute;
+        width: 4.5%;
+        height: 1.9%;
+        font-size: 2vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-buttons .fa-linkedin {
+        top: 81.5%;
+        left: 35.5%;
+    }
+    .contact-buttons .fa-github {
+        top: 82%;
+        left: 49.4%;
+    }
+    .contact-buttons .fa-phone {
+        top: 78.8%;
+        left: 59.5%;
+    }
+    .contact-buttons .close-btn {
+        top: 94%;
+        left: 71%;
+        width: 11%;
+        height: 3%;
+        font-size: 2vw;
+        }
+    .volume {
+        position: absolute;
+        top: 454px;
+        left: 295px;
+        width: 33px; }
+      
+}
+
+@media screen and(min-width: 571px){
+    .contact-container {
+        justify-content: center;
+        align-items: flex-end;   
+    }
+    .phone-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;    
+    }
+
+    .form-image-macchina{
+        margin-bottom: -10vw;
+    }
+    .form-paper {
+        bottom: -5vw;
+        height: 57%;
+        transform: translateX(-50%) translateY(100%);
+    }
+    .form-lever {
+        top: 66%;
+        left: 13%;
+        width: 4%;
+        height: 6%;
+    }
+}
+@media screen and(min-width: 900px) {
+    .form-image-macchina {
+        margin-bottom: -20vw;
+    }
+
+    .form-paper {
+        bottom: -15vw;
+        height: 60%;
+        transform: translateX(-50%) translateY(100%);
+    }
+    .form-lever {
+        top: 74%;
+        left: 13%;
+        width: 3%;
+        height: 4%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .form-image-macchina {
+        margin-bottom: -25vw;
+    }
+
+    .form-paper {
+        bottom: -20vw;
+        height: 60%;
+        transform: translateX(-50%) translateY(100%);
+    }
+    .form-lever{
+        top: 80%;
+        left: 13%;
+        width: 3%;
+        height: 5%;
+    }
+}

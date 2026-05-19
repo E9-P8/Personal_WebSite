@@ -1,0 +1,164 @@
+<div class="project">
+  <!-- Tunnel-->
+  <div class="tunnel" *ngIf="!showContent">
+    <div class="tunnelRings">
+      <div
+        class="tunnelRing"
+        [ngClass]="isEntering ? 'enter' : 'exit'"
+        *ngFor="let ring of rings"
+        (animationend)="onAnimationEnd($event)"
+      ></div>
+    </div>
+  </div>
+
+  <!-- Contenuto vero del Project -->
+  <div class="tv-screen" *ngIf="showContent">
+    <main>
+      <section class="tv-interface" #tvInterface>
+        <h2>Projects</h2>
+        <article class="tv-item project-selected">
+          <a class="project-summary" href="/" target="_blank" rel="noreferrer">
+            <div class="project-summary-title">
+              <div class="tv-indent"><p>[/&gt;</p></div>
+              <div class="title">
+                <p>Pr. name</p>
+                <h3>Harry Potter Escape</h3>
+                <p class="read-more">
+                  <span class="text">2025</span>
+                  <span class="bleep"></span>
+                  <span class="arrow">⮐</span>
+                </p>
+              </div>
+            </div>
+            <div class="project-summary-description">
+              <div class="tv-indent">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="text">
+                <p class="title">[/&gt; info</p>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat<br /><br />Design:
+                  Elisa Puorto
+                </p>
+                <p class="tech">Tech: frontend, nodejs</p>
+                <p class="url">/</p>
+              </div>
+            </div>
+            <div class="project-summary-link">
+              <span>Visit site <span class="arrow">→</span></span>
+            </div></a
+          >
+        </article>
+        <article class="tv-item">
+          <a class="project-summary" href="/" target="_blank" rel="noreferrer"
+            ><div class="project-summary-title">
+              <div class="tv-indent"><p>[/&gt;</p></div>
+              <div class="title">
+                <p>Pr. name</p>
+                <h3>Expedition Trailblazer</h3>
+                <p class="read-more">
+                  <span class="text">2025</span> <span class="bleep"></span>
+                  <span class="arrow">⮐</span>
+                </p>
+              </div>
+            </div>
+            <div class="project-summary-description">
+              <div class="tv-indent">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="text">
+                <p class="title">[/&gt; info</p>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat<br /><br />
+                </p>
+                <p class="tech">Tech: noTech</p>
+                <p class="url">/</p>
+              </div>
+            </div>
+            <div class="project-summary-link">
+              <span>Visit site <span class="arrow">→</span></span>
+            </div></a
+          >
+        </article>
+        <article class="tv-item">
+          <a
+            class="project-summary"
+            href="https://brandingthatslaps.com/"
+            target="_blank"
+            rel="noreferrer"
+            ><div class="project-summary-title">
+              <div class="tv-indent"><p>[/&gt;</p></div>
+              <div class="title">
+                <p>Pr. name</p>
+                <h3>Coming Soon</h3>
+                <p class="read-more">
+                  <span class="text">202-</span> <span class="bleep"></span>
+                  <span class="arrow">⮐</span>
+                </p>
+              </div>
+            </div>
+            <div class="project-summary-description">
+              <div class="tv-indent">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="text">
+                <p class="title">[/&gt; info</p>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat<br /><br />Design:
+                  Slaps
+                </p>
+                <p class="tech">Tech: -</p>
+                <p class="url">/</p>
+              </div>
+            </div>
+            <div class="project-summary-link">
+              <span>Visit site <span class="arrow">→</span></span>
+            </div></a
+          >
+        </article>
+        <article class="tv-item">
+          <a
+            class="project-summary"
+            href="https://bvds.nl/"
+            target="_blank"
+            rel="noreferrer"
+            ><div class="project-summary-title">
+              <div class="tv-indent"><p>[/&gt;</p></div>
+              <div class="title">
+                <p>Pr. name</p>
+                <h3>Coming Soon</h3>
+                <p class="read-more">
+                  <span class="text">202-</span> <span class="bleep"></span>
+                  <span class="arrow">⮐</span>
+                </p>
+              </div>
+            </div>
+            <div class="project-summary-description">
+              <div class="tv-indent">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="text">
+                <p class="title">[/&gt; info</p>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat
+                </p>
+                <p class="tech">Tech: -</p>
+                <p class="url">/</p>
+              </div>
+            </div>
+            <div class="project-summary-link">
+              <span>Visit site <span class="arrow">→</span></span>
+            </div></a
+          >
+        </article>
+      </section>
+    </main>
+    <button class="exit-button" (click)="closeProject()">
+      Esci dai progetti
+    </button>
+  </div>
+</div>
