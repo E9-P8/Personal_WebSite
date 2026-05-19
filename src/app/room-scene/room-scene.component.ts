@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input, ChangeDetectorRef, SimpleChanges } from '@angular/core';
 import { AudioService } from'../services/audio.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-room-scene',
@@ -13,7 +14,7 @@ import { AudioService } from'../services/audio.service';
 export class RoomSceneComponent implements OnInit {
 
 
-  constructor(private audioService: AudioService) {
+  constructor(private audioService: AudioService, private http: HttpClient) {
    }
 
 
@@ -28,6 +29,8 @@ export class RoomSceneComponent implements OnInit {
   isSended= false;
 
   isAudioMuted = false;
+  showPopup;
+  popupMessage;
 
   @Output() projectOpened = new EventEmitter<void>(); 
   @Output() tvClicked = new EventEmitter<void>(); 
@@ -89,6 +92,7 @@ export class RoomSceneComponent implements OnInit {
     message: ''
   };
 
+
   sendEmail() {
   if (
     !this.form.name ||
@@ -99,18 +103,44 @@ export class RoomSceneComponent implements OnInit {
     alert('è necessario che tutti i campi siano compilati per procedere');
     return;
   }
-
-  this.isSended = true;
   this.audioService.play('send');
-  setTimeout(() => {
-    this.isSended = false;
-    this.form = {
-      name: '',
-      surname: '',
-      email: '',
-      message: ''
-    };
-  }, 1000);
+  this.isSended = true;
+
+  this.http.post("http://localhost:3000/send-email", this.form).subscribe({
+    next: (res: any) => {
+      if (res.success) {
+        this.isSended = true;
+        //alert("Email inviata con successo!");
+        this.showPopup= true;
+
+        setTimeout(() => {
+          this.isSended = false;
+          this.form = {
+            name: '',
+            surname: '',
+            email: '',
+            message: ''
+          };
+        }, 1000);
+
+      } else {
+        //alert("Errore nell'invio della mail");
+        this.showPopup = true;
+        this.popupMessage = "Errore nell'invio della mail";
+      }
+    },
+    error: (err) => {
+      console.error("Errore invio email", err);
+    }
+  });
+
+
+  }
+
+  onPopupClose() {
+    this.showPopup = false;
+    this.isSended = false; // foglio nuovo entra
+    this.form = { name:'', surname:'', email:'', message:'' };
   }
 
   OpenProject() { 

@@ -13,6 +13,9 @@ import { RoomSceneComponent } from './room-scene/room-scene.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutMeComponent } from './about-me/about-me.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,8 @@ import { AboutMeComponent } from './about-me/about-me.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule   
+    BrowserAnimationsModule  ,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

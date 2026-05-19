@@ -180,6 +180,12 @@
         <button type="button" class="form-lever" (click)="sendEmail()">
           Invia
         </button>
+        <div *ngIf="showPopup" class="popup-overlay">
+          <div class="popup">
+            <p>{{ popupMessage || "Email inviata con successo!" }}</p>
+            <button (click)="onPopupClose()" class="btn-popup">OK</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="volume" (click)="toggleRoomMusic()">
