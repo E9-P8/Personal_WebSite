@@ -2,14 +2,16 @@ import { Component, OnInit, EventEmitter, Output, Input, ChangeDetectorRef, Simp
 import { AudioService } from'../services/audio.service';
 import { HttpClient } from '@angular/common/http';
 
+
+declare var gtag: Function;
+
+
 @Component({
   selector: 'app-room-scene',
   templateUrl: './room-scene.component.html',
   styleUrls: ['./room-scene.component.scss'],
  
 })
-
-
 
 export class RoomSceneComponent implements OnInit {
 
@@ -91,6 +93,35 @@ export class RoomSceneComponent implements OnInit {
     email: '',
     message: ''
   };
+
+
+  trackLinkedInClick() {
+    gtag('event', 'click_linkedin', {
+      event_category: 'social',
+      event_label: 'Profilo LinkedIn'
+    });
+  }
+
+  trackGithubClick() {
+    gtag('event', 'click_github', {
+      event_category: 'social',
+      event_label: 'Profilo GitHub'
+    });
+  }
+
+  trackCalendlyClick() {
+    gtag('event', 'click_calendly', {
+      event_category: 'contact',
+      event_label: 'Calendly Call'
+    });
+  }
+
+  trackEmailSend() {
+    gtag('event', 'send_email', {
+      event_category: 'contact',
+      event_label: 'Form Email'
+    });
+  }
 
 
   sendEmail() {

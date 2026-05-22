@@ -189,28 +189,26 @@
         overflow: hidden;
         transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
     }
-
     .retro-text .about-me-description.active {
         max-height: 500px;
         opacity: 1;
         margin-bottom: 2.5vh;
     }
+    .oval-container {
+        position: absolute;
+        top: 53%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        width: 66%;
+        height: 64%;
+        clip-path: ellipse(50% 50% at 50% 50%);
+        //background-color: rgba(255, 0, 76, 0.527);
 
-        .oval-container {
-            position: absolute;
-            top: 53%;
-            left: 49%;
-            transform: translate(-50%, -50%);
-            width: 66%;
-            height: 64%;
-            clip-path: ellipse(50% 50% at 50% 50%);
-            //background-color: rgba(255, 0, 76, 0.527);
-    
-            container-type: inline-size;
-        }
-.retro-text {
+        container-type: inline-size;
+    }
+    .retro-text {
     font-size: 2.4cqi;
-}       
+    }         
 }
 @media (max-width: 650px) {
     .oval-container {
@@ -225,9 +223,17 @@
 
         container-type: inline-size;
     }
-.retro-text {
-    font-size: 2.3cqi;   }
-}
+    .retro-text {
+        font-size: 2.8cqi;  
+     }
+    .discover-it {
+        -webkit-tap-highlight-color: transparent;       
+    }
+    .discover-it:active {
+        transform: scale(0.98);   
+    }
+       
+    }
 @media (max-width: 500px) {
     .oval-container {
             position: absolute;
@@ -242,6 +248,48 @@
             container-type: inline-size;
         }
  .retro-text {
-    font-size: 2.2cqi;
-                }       
+    font-size: 3cqi;
+                } 
+.retro-text div {
+    margin-bottom: 1.5vh;              
+}       
+.discover-it {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.discover-it:active {
+    transform: scale(0.98);
+}
+.aboutmeFrame {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    position: relative;
+}
+
+.frame-flip {
+    width: 520px;
+        height: 760px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.frame-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.frame-face img {
+    width: 100%;
+    height: auto;
+}
+.ContactMe {
+    width: 12%;
+}
+
+.CloseAboutMe {
+    width: 12%;
+}
 }

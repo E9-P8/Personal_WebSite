@@ -21,15 +21,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     height: auto;
-    max-width: 40%;
+    max-width: 100%;
 };
 
 .lockWrapper p{
     position: absolute;
-    top: 49%;
-    left: 59%;
+    top: 40%;
+    left: 56%;
     color: #d6bd8a;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-family: 'Pinyon Script', cursive;
 }
 
@@ -44,7 +44,6 @@
 };  
 
 .keyRotate{
-   // transform: rotate(15deg);
     transform: translate(-50%, -50%) rotate(15deg);
 };
 
@@ -65,3 +64,51 @@
     z-index: 10;}
 
 
+@media (max-width: 500px) {
+    .lockItem {
+            max-width: 100%;
+        }
+    .lockWrapper p{           
+        position: absolute;
+        top: 64%;
+        left: 57%;
+        font-size: 1.4rem;
+        }
+}
+
+@media (max-width: 800px) {
+    .lockItem {
+        max-width: 100%;
+    }
+
+    .lockWrapper p {
+        position: absolute;
+        top: 64%;
+        left: 57%;
+        font-size: 1.4rem;
+    }
+
+}
+@media screen and(max-width: 1383px) {
+    .lockItem {
+        max-width: 100%;
+    }
+    .lockWrapper p {
+        position: absolute;
+        top: 72%;
+        left: 57%;
+        font-size: 1.4rem;
+    }
+}
+@media screen and(min-width: 1384px) {
+    .lockItem {
+        max-width: 100%;
+    }
+
+    .lockWrapper p {
+        position: absolute;
+        top: 72%;
+        left: 54%;
+        font-size: 1.4rem;
+    }
+}

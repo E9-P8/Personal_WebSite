@@ -32,7 +32,6 @@
           &lt;/&gt;
         </text>
       </g>
-
       <!--About me-->
       <g>
         <image
@@ -95,6 +94,17 @@
         />
       </g>
     </svg>
+    <!--Intro-->
+    <div class="intro">
+      <h1>Benvenuto!</h1>
+      <p>
+        Mettiti comodo, indossa le cuffie e lasciati avvolgere dall'atmosfera.
+      </p>
+      <p class="highlight">
+        Esplora i dettagli della stanza e clicca sugli oggetti per interagire
+        con me.
+      </p>
+    </div>
     <div class="contact-container" *ngIf="Contact">
       <div class="phone-container">
         <img src="assets/contact-telefono.png" class="phone" />
@@ -103,17 +113,20 @@
             href="https://my.linkedin.com/in/elisa-puorto/en"
             class="fab fa-linkedin"
             target="_blank"
+            (click)="trackLinkedInClick()"
           ></a>
           <a
             href="https://github.com/E9-P8"
             class="fab fa-github"
             target="_blank"
+            (click)="trackGithubClick()"
           ></a>
           <a
             href="https://calendly.com/puorto-elisa"
             class="fas fa-phone"
             alt="Prendiamoci un caffe virtuale"
             target="_blank"
+            (click)="trackCalendlyClick()"
           ></a>
           <button class="close-btn" (click)="CloseContact()">
             [ HANG UP ]
@@ -177,7 +190,11 @@
           </form>
         </div>
 
-        <button type="button" class="form-lever" (click)="sendEmail()">
+        <button
+          type="button"
+          class="form-lever"
+          (click)="sendEmail(); trackEmailSend()"
+        >
           Invia
         </button>
         <div *ngIf="showPopup" class="popup-overlay">

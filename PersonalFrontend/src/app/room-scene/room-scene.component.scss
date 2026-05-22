@@ -12,6 +12,41 @@
     display: block;
 }
 
+.intro{
+    position: absolute;
+    width: 7.8%;
+
+    height: 14.8%;
+    top: 37.5%;
+    left: 30.7%;
+
+    text-align: center;
+    color: #1a1a1a;
+    font-family: "Playfair Display", "Georgia", serif;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+}
+.intro h1{
+    font-size: 1.3vw;
+    font-weight: 700;
+    text-shadow: 0 0 1px rgba(44, 53, 57, 0.3), 1px 1px 1px rgba(0, 0, 0, 0.15);
+    color: #1b1f20;
+}
+
+.intro p {
+    font-size: 1vw;
+    line-height: 1;
+    font-weight: 500;
+    color: #272b2c;
+    text-shadow: 0 0 1px rgba(58, 66, 69, 0.2), 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.15);
+}
+
+.intro .highlight{
+    font-style: italic;
+    font-size: 0.9vw;
+    color: #202020;
+}
+
 .button {
     pointer-events: all;
     cursor: pointer;
@@ -25,14 +60,11 @@
     height: 100%;
     pointer-events: none;
 }
-
-
 .tv-project {
     transform-box: fill-box;
     transform-origin: center;
     transition: transform 0.4s ease;
 }
-
 .tv-icon {
     fill: #130f06;
     font-family: 'Courier New', monospace;
@@ -58,8 +90,6 @@
     transition: transform 0.4s ease-in-out;
     mix-blend-mode: normal;
 }
-
-
 .tv-project:hover {
     transform: scale(1.4);
 }
@@ -235,7 +265,7 @@
 }
 .popup-overlay {
     position: fixed;
-        top: 30px; // in alto
+        top: 30px; 
         left: 50%;
         transform: translateX(-50%);
         z-index: 9999;
@@ -247,11 +277,11 @@
                 rgba(205, 180, 145, 1) 45%,
                 rgba(180, 150, 115, 1) 75%,
                 rgba(150, 120, 95, 1) 100%);
-    border: 2px solid #3b2f2f; // marrone scuro
+    border: 2px solid #3b2f2f; 
     border-radius: 6px;
     padding: 20px 30px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    font-family: 'Courier New', Courier, monospace; // font da macchina da scrivere
+    font-family: 'Courier New', Courier, monospace; 
     text-align: center;
     max-width: 420px;
     animation: fadeInDown 0.6s ease-out;
@@ -274,7 +304,7 @@
     justify-content: center;
     z-index: 1000;
     overflow-y: auto;
-
+    -webkit-overflow-scrolling: touch;
  }
 
  .phone-container{
@@ -385,7 +415,6 @@
         overflow: auto;
         -webkit-overflow-scrolling: touch;
     }
-
     .roomImage {
         width: auto;
         height: auto;
@@ -397,7 +426,26 @@
         width: 1080px;
         height: 1278px;
     }
-    
+    .intro {
+        position: absolute;
+
+        width: 85px;
+        height: 192px;
+        top: 479px;
+        left: 330px;
+    }
+    .intro h1 {
+        font-size: 13px;
+    }
+    .intro p {
+        font-size: 11px;
+    }
+    .intro .highlight {
+        font-size: 11px;
+    }
+    .intro:active {
+        transform: scale(2);
+        z-index: 999;   }
     .form-lever {
         top: 61%;
         left: 13%;
@@ -420,7 +468,6 @@
         overflow-y: auto;
         overflow-x: auto;
     }
-
     .phone-container {
         width: 100%;
         min-height: 100%;
@@ -465,17 +512,21 @@
         left: 295px;
         width: 33px; }
       
+    .popup {
+        white-space: normal;
+        line-height: 1.4;}
 }
 
 @media screen and(min-width: 571px){
     .contact-container {
         justify-content: center;
-        align-items: flex-end;   
+        overflow-y: auto;
     }
+   
     .phone-container {
         width: 100%;
         display: flex;
-        justify-content: flex-end;
+        overflow-y: auto;
         align-items: center;    
     }
 
@@ -493,6 +544,13 @@
         width: 4%;
         height: 6%;
     }
+    .popup {
+        white-space: normal;
+        line-height: 1.4;
+    }
+    .intro:active {
+        transform: scale(2);
+        z-index: 999;   }
 }
 @media screen and(min-width: 900px) {
     .form-image-macchina {
@@ -510,6 +568,10 @@
         width: 3%;
         height: 4%;
     }
+    .popup{
+        white-space: normal;
+        line-height: 1.4;}
+     
 }
 
 @media screen and (min-width: 1300px) {
