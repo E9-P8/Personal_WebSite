@@ -16,7 +16,7 @@ app.post("/send-email", async (req, res) => {
     secure: true, // SSL
     auth: {
       user: "elisa.puorto98@gmail.com",
-      pass: "bunc fcdl lgqt fluc",
+      pass: process.env.EMAIL_PASSWORD,
     },
     tls: {
       rejectUnauthorized: false,
